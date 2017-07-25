@@ -9,13 +9,20 @@
 
 - 개발 이후에 상용화 단계에 접어들게 되면 최종 등록 이 후 전국에 설치된 LoRa망을 이용하여 서비스를 할 수 있습니다.
 
-<img src="./images/LoRa_arc.png" style="width:300px ; height:250px"/>
 
-### ThingPlug API 주요 구성
 
-Starter Kit에서는 역할에 따라 구성원을 다음 네 가지로 구분할 수 있습니다.
+### Lora Architecture
 
 <img src="./images/Lora_arc.JPG" />
+
+1 . Lora모듈을 분당에 SK 자회사에서 구입한다. (인터넷으로도 구입 가능합니다.)
+2. 디바이스 등록을 분당에 OPEN-TESTBED or WIZNET에서 진행한다.
+3. LoRa모듈을 아두이노 보드에 연결하고 위에 센서를 달아서 작업한다.
+4. 아두이노 코드에서 LoRa모듈을 통해 ThingPlug서버로 데이터를 전송하는 UpLink방식 코드를
+  작성한다.
+5. ThingPlug서버에 저장된 데이터들을 클라우드 서버에서 불러와 가지고 온다.
+6. 불러온 데이터를 용도에 맞게 가공하여 서비스한다.
+
 
 -   애플리케이션 클라이언트 (Application)
 -   디바이스 클라이언트 (Device)
