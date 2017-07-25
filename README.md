@@ -1,7 +1,11 @@
-![ThingPlug logo](./media/image1.png)
-# SKT ThingPlug LoRa oneM2M Starter Kit
 
-Starter Kit 은 SKT의 ThingPlug에서 제공하는 IoT 국제 표준 oneM2M API를 이용하여 LoRa서비스 개발 환경을 구축할 때 좀 더 쉽게 접근하고, 서비스의 다양한 시나리오를 빠르게 테스트 할 수 있도록 제공하는 Device와 Application 시뮬레이터입니다. 본 Starter Kit을 통하여 SK Telecom의 ThingPlug 를 활용하는 방법을 쉽게 이해하고, 다양한 서비스 개발을 Starter Kit에서부터 시작해보세요
+# Ubinet_서버코드
+
+LoRa는 SK에서 제공해주는 네트워크 망으로써 전국에 설치된 IoT네트워크망입니다.
+현재 설치된 IoT네트워크망 중 제일 넓은 지역과 제일 적은 비용으로 운용되고 있습니다.
+분당에 OPEN-TESTBED에서 LoRa 관련 교육을 진행하고 있으며 , OPEN-HOUSE (Wiznet)에서도
+심화된 교육을 진행하고 있습니다.
+개발 이후에 상용화 단계에 접어들게 되면 최종 등록 이 후 전국에 설치된 LoRa망을 이용하여 서비스를 할 수 있습니다.
 
 ### ThingPlug StarterKit for LoRa의 주요 특징 및 기능
 
