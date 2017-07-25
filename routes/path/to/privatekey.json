@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "hansungmall",
+  "private_key_id": "78947e538478fafeb678ff1a6b5dadf2fa97fc24",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCkKNZtT+QgBzgU\nIyXR2duRxa0jqY7RKZwWSKK5/aRtRPKgIu2cOURtZoaO8S0F1eA3L16fqEN6O1hC\n+Blg8VnE951tSqX8MMu4haGZ8hfvebf+3E9YYBbQIxw4Batc8vCSLqW1cHH0TPlQ\n7T7E3wDSdOSSCZljG6mSGp/zQbk4Gcaz4uxyMKetX8cCPx/Jm1qGpZcZVY8fVUHO\nQk5iRxuq4rFJ/BvU6n8ouN14sp5zfaZpsHVbuOSV80Idvb6fijNRU/Rfl0tb0HBe\ne1PTDMKtCmNBEn1pH1bRfMw9n71bGKR2I40W6BrFcexVz6OZK6r5PHJrRwJ2aP5U\n8jsD67jPAgMBAAECggEAWHxiyN1tfA4oHkKr2ifygOrq3vRAtWIWbrSMcnDUNsoZ\ndlQdfD4qMkY3dclumVyl1VlFSg4rATIH62FMXML7vn4yb3zzZ7LtvPLbHt4uJLmZ\ngllCs8JnyZ2DUndL3XheUI2waNLJugPbx9F6KiiCiu7TXhyqf4+jocuUOE1PB3uQ\nG5HtgNNkNJaZsiCKo/ttotuGjzOtfPYOWyK5l2E/WUmG9EXI2TKSEwrASWAEuQMA\n7lElVnv0ppJHNCyzK+KBiDBu0fnaQv87KBy28N/sOZAfdDqnZycvGY8HE+e4bHxZ\n7UlQolwyLIT1ehpKr+0A/6TE7GQqOV1Hl4YENbZoUQKBgQDYTyjYYWI+YRyo7iBE\nT2bD2WQO3NMk3PSGLDfkofj5LLtYhnqDj1WS9tM0FUFW+IB11bD0qAPVwT9y3QYa\n0PzI+pgKPKKgKw1s4xC06j2XIEO17paB2KnLp80bPI6yW3r4q6WQkjP19zZfGJma\no6FRDrFDHgcBzRpd2dttlhriHQKBgQDCSAPMpn1MPQm/92+f3Is4LTYZ2RimhNlE\nNjcTt3GNP6L17veUMSZmYOiFkuvWD4zWA0ALjZgikTpiUNlxkWCbAND+1JWH+rvA\nTyO5nAuHI3aXuWcDXPz79gBUPRBujalsH5MtNGOG0glGBkSCI2oyokfJGWJVWcjU\na4LlwEtS2wKBgF38p0a9qa5pC8brEOIdjg1zG+LJWIUf7K+P7wlMx52dLhoc9IbN\ndOVSkhqDUcy0VTzeCPGFP4VVXnhOSSTFwdCh8gYgqpjlnAO/9bZmQTS1NDaM4KCy\nv7RZyOkYuvgMf7Yk/t9+Z01siRdw3O0wRBuwQp1jIrBJqjc1Pf6zxiKRAoGAHaXB\ntqw9eLHj2ACZbyrHsAXuOJmRkm+5fBhN5VtcH7LzWlZiP6IUexEUyrV1+c+brVkH\nn/u2mKfS4gf2dsc5l83TFuA4BW00048AI6X1eGToBxVK7A93p7eNq006QbSqgw56\ndi6FdaB9u8rfD4D6BsoO7FhMUjwGUqwpaIgktnsCgYAKEpVDZzh6xF6InrVFj/6p\nvCnqZh78WGDDQ75GF6A7c59SiMx6np4diPUlokiCNzunL7iQ5mH3kWk/HDMAMvDt\nwpft9nVYk0NR6TTDS8ZPnbu6xQJQEzMiTtaHg7bFasn0h+eHDLj24TGy2taYufaY\nO2BBW6cBHsSp/7weuVSJ9Q==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-j4hzo@hansungmall.iam.gserviceaccount.com",
+  "client_id": "112485999087401508794",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-j4hzo%40hansungmall.iam.gserviceaccount.com"
+}
