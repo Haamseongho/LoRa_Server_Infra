@@ -9,17 +9,7 @@
 
 - 개발 이후에 상용화 단계에 접어들게 되면 최종 등록 이 후 전국에 설치된 LoRa망을 이용하여 서비스를 할 수 있습니다.
 
-### ThingPlug StarterKit for LoRa의 주요 특징 및 기능
-
--   실제 Device가 없어도 서비스 테스트가 가능하도록 제공하는 모듈입니다.
-
--   ThingPlug가 제공하는 IoT 국제 표준인 oneM2M규격 REST API를 활용하여 범용성을 확보하였습니다.
-
--   node.js와 express 웹 애플리케이션 프레임워크 등으로 구성되어 쉽게 개발하고 수정할 수 있습니다.
-
--   IFTTT 및 지도, 그래프 등 다양한 컴포넌트 탑재로 데이터와 서비스간 인터페이스 예제를 제공합니다.
-
--   Github에 예제가 업로드 되어있어 바로 다운로드 가능합니다.
+<img src="./images/LoRa_arc.png" style="width:300px ; height:250px"/>
 
 ### ThingPlug API 주요 구성
 
