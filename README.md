@@ -1,5 +1,7 @@
 
-# Ubinet_서버코드
+# Ubinet_서버
+
+## LORA [OpenSource - 1]
 
 - LoRa는 SK에서 제공해주는 네트워크 망으로써 전국에 설치된 IoT네트워크망입니다.
 
@@ -29,11 +31,7 @@
 
 6. 불러온 데이터를 용도에 맞게 가공하여 서비스한다.
 
-
--   애플리케이션 클라이언트 (Application)
--   디바이스 클라이언트 (Device)
--   oneM2M API를 제공하는 ThingPlug 서버 (ThingPlug)
--   LoRa Network 서버
+<hr /><hr />
 
 애플리케이션과 디바이스는 직접적으로 통신하지 않고 각 구성원들은 기본적으로 ThingPlug가 제공하는 oneM2M 표준 기반의 REST API를 통해 oneM2M 서버와 통신을 하게 됩니다. 해당 API를 통해 제공되는 IoT의 공통적인 기능(예, 데이터 저장, 장치 관리, 장치 등록 등)은 디바이스와 애플리케이션의 개발자들이 좀 더 쉽게 LoRa 서비스를 개발할 수 있는 환경을 제공합니다.
 
