@@ -46,30 +46,29 @@
   
 ```
 <img src="./images/thingplug2.JPG" />
-**
+```
 위는 디바이스 등록 요청을 마친 뒤 등록한 상태입니다.
-
 위 작업을 거친 후 Rest.api 인 POSTMAN을 활용해서 작업 내용을 확인하겠습니다. 
+```
+
+> # POSTMAN 
+
+** Package.JSON **
+
+[ Package.json 활용해서 POSTMAN 등록하기 (import) ] 
 
 
-<span id="starter-kit-실행절차-요약" class="anchor"><span id="_Toc459022496" class="anchor"></span></span>Starter Kit 실행절차
 ------------------------------------------------------------------------------------------------------------------------------
 
-다음 절차를 따르면 간편하게 Starter Kit을 실행할 수 있습니다.
+<img src="./images/Thingplug3_data.JPG" />
 
-1.  사전 준비 : 필요한 필수 도구 설치 및 코드 복사
 
-2.  Code 복사
+> 생성된 데이터는 여기서 정리됩니다. (Thingplug 서버에 데이터가 쌓이게 된다)
+  Header값을 맞춰주어야 확인 가능합니다.
 
-3.  프로젝트 dependency를 설치
+<img src="./images/postman2.JPG" />
 
-4.  나의 ThingPlug 계정정보에 맞게 일부 파일(config.js)을 수정
 
-5.  Device.js를 실행
-
-6.  ThingPlug에 내 계정에 Device를 등록
-
-7.  Application\_web.js 실행
 
 ### <span id="사전-준비" class="anchor"><span id="_Toc459022497" class="anchor"></span></span>사전 준비
 
