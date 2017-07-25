@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>로그인 페이지 입니다.</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"
+            data-do-not-move="true" data-provides="jQuery"></script>
+
+    <style>
+
+        header {
+            background-color: #eeffdd;
+            background-image: url("");
+            float: left;
+            height: 200px;
+            width: 100%;
+        }
+
+        nav {
+            background-color: #abcdef;
+            float: left;
+        }
+
+        /* bodyTocMenuCollapsed div#leftNav{
+           width:20px;
+         }*/
+
+        /*div#leftNav{*/
+        /*float:left;*/
+        /*min-height:10px;*/
+        /*position:relative;*/
+        /*}*/
+
+        div#leftNav {
+            float: left;
+            width: 255px;
+            margin-top: 200px;;
+            /*display:inline-block;*/
+            margin-left: 15px;
+            margin-right: 35px;
+            position: fixed;
+        }
+
+        #mainsection {
+            clear: both;
+        }
+
+        #mainBody {
+            margin-left: 500px;
+            margin-top: 250px;
+        }
+
+        /*.subHeading{
+          color:#2a2a2a;
+          font-size:.857em;
+          font-family:'Segoe UI','Lucida Grande',Verdana,Arial,Helvetica,sans-serif;
+          font-weight:bold;
+          margin:0;
+        }*/
+
+        h5, h6 {
+            font-size: .857em;
+            font-weight: normal;
+            line-height: 130%;
+            margin: 0;
+        }
+
+        .firstp {
+            font-weight: bold;
+            font-family: "Times New Roman";
+            font-size: 80px;
+        }
+
+        .secondp {
+            font-size: 30px;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <header>
+        <div class="container">
+            <p class="firstp" style="text-shadow: #272d33">UBINET</p>
+        </div>
+    </header>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="leftNav">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="secondp"><a href="https://msdn.microsoft.com/ko-kr/library/yy40ytx0(v=vs.100).aspx">명단
+                        </a></li>
+                    <li class="secondp"><a href="https://msdn.microsoft.com/ko-kr/library/ssa0wsyf(v=vs.100).aspx">방문
+                            계획</a></li>
+                    <li class="secondp"><a href="https://msdn.microsoft.com/ko-kr/library/etsfak11(v=vs.100).aspx">회원
+                            추가</a></li>
+                    <li class="secondp"><a href="https://msdn.microsoft.com/ko-kr/library/83y98ckk(v=vs.100).aspx">회원
+                            삭제</a></li>
+                </ul>
+            </div>
+
+            <div id="mainSection" class="container-fluid">
+                <div id="mainBody">
+                    <h3 class="subHeading">Login</h3><br>
+                    <div class="subsection">
+                        <label for="Institutionid">Institution ID : </label>
+                        <input type="text" id="institution" name="institution" placeholder='institution ID'>
+                        <br><br>
+                        <label for="password">Password : </label>
+                        <input type="password" id="password" name="password" placeholder='password'><br>
+                        <br><br>
+                        <button type="button" id="sendBtn" value="Login" class="btn btn-primary btn-block">로그인 하기</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <hr>
+    <br><br><br>
+
+    <button type="button" id="btnSignIn">회원 가입</button>
+    <script>
+        $(document).ready(function () {
+            $("#btnSignIn").click(function () {
+                location.href = "/register";
+            });
+            $("#sendBtn").click(function () {
+                $.ajax({
+                    url: "/login",
+                    type: "post",
+                    data: {adminId: $("#institution").val(), adminPw: $("#password").val()},
+                    dataType: "json",
+                    success: function (data) {
+                        console.log("send well");
+                    }
+                });
+            });
+        });
+    </script>
+    <footer class="container-fluid text-center">
+        <a href="#home" title="To Top">
+            <span class="glyphicon glyphicon-hand-up"></span>
+        </a>
+        <p>Homepage Made By <a title="Empty!! HAHA">Ubinet</a></p>
+        <p>팀원 : 김영남, 전준엽, 조재근, 함성호</p>
+    </footer>
+</div>
+</body>
+
+</html>
