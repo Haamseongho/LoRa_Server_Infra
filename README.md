@@ -15,7 +15,7 @@
 
 Starter Kit에서는 역할에 따라 구성원을 다음 네 가지로 구분할 수 있습니다.
 
-<img src="./images/LoRa_arc.png" />
+<img src="./images/LoRa_arc.JPG" />
 
 -   애플리케이션 클라이언트 (Application)
 -   디바이스 클라이언트 (Device)
