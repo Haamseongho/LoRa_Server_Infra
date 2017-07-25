@@ -39,17 +39,17 @@
 
 
 - <https://sandbox.sktiot.com/> 
- ** Thingplug 사이트에서 디바이스를 등록합니다.
+``` Thingplug 사이트에서 디바이스를 등록합니다.
+
 등록 하는 과정에서 분당에 OPEN-TESTBED에서 등록 요청을 해야 합니다. 
- ** 
+  
   
-
+```
 <img src="./images/thingplug2.JPG" />
-
-** 
+**
 위는 디바이스 등록 요청을 마친 뒤 등록한 상태입니다.
-위 작업을 거친 후 Rest.api 인 POSTMAN을 활용해서 작업 내용을 확인하겠습니다.
-** 
+
+위 작업을 거친 후 Rest.api 인 POSTMAN을 활용해서 작업 내용을 확인하겠습니다. 
 
 
 <span id="starter-kit-실행절차-요약" class="anchor"><span id="_Toc459022496" class="anchor"></span></span>Starter Kit 실행절차
