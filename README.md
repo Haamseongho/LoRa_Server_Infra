@@ -35,16 +35,19 @@
 
 ## 디바이스 등록
 
-<img src="./images/Thingplug1.JPG" />
-
 
 - <https://sandbox.sktiot.com/> 
+
+
+
+<img src="./images/Thingplug1.JPG" />
+
+<img src="./images/thingplug2.JPG" />
+
+
 ``` Thingplug 사이트에서 디바이스를 등록합니다.
 
 등록 하는 과정에서 분당에 OPEN-TESTBED에서 등록 요청을 해야 합니다. 
-  
-
-<img src="./images/thingplug2.JPG" />
 ```
 ```
 위는 디바이스 등록 요청을 마친 뒤 등록한 상태입니다.
