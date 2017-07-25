@@ -16,7 +16,7 @@
 <img src="./images/Lora_arc.JPG" />
 
 
-1.Lora모듈을 분당에 SK 자회사에서 구입한다. (인터넷으로도 구입 가능합니다.)
+  1. Lora모듈을 분당에 SK 자회사에서 구입한다. (인터넷으로도 구입 가능합니다.)
 
 2. 디바이스 등록을 분당에 OPEN-TESTBED or WIZNET에서 진행한다.
 
