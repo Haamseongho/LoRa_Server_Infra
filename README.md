@@ -31,9 +31,12 @@
 
 6. 불러온 데이터를 용도에 맞게 가공하여 서비스한다.
 
-<hr /><hr />
+<hr />
 
-애플리케이션과 디바이스는 직접적으로 통신하지 않고 각 구성원들은 기본적으로 ThingPlug가 제공하는 oneM2M 표준 기반의 REST API를 통해 oneM2M 서버와 통신을 하게 됩니다. 해당 API를 통해 제공되는 IoT의 공통적인 기능(예, 데이터 저장, 장치 관리, 장치 등록 등)은 디바이스와 애플리케이션의 개발자들이 좀 더 쉽게 LoRa 서비스를 개발할 수 있는 환경을 제공합니다.
+## 디바이스 등록
+
+<img src="./images/Thingplug1.JPG" />
+<img src="./images/Thingplug2.JPG" />
 
 
 <span id="starter-kit-실행절차-요약" class="anchor"><span id="_Toc459022496" class="anchor"></span></span>Starter Kit 실행절차
