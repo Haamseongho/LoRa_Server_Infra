@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+          rel="stylesheet"/>
+
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"
+            data-do-not-move="true" data-provides="jQuery"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.6/fullcalendar.min.js"></script>
+
+    <style>
+
+        table, tr, th, td {
+            border: 1px solid black;
+            margin-top:100px;
+            width: 900px;
+        }
+
+        table {
+            margin: auto;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        td {
+            font-family: arial;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        #insertTable2{
+            margin-top:200px;
+        }
+
+        header {
+            background-color: #eeffdd;
+            float: left;
+            height: 100%;
+            width: 100%;
+        }
+
+        .firstp {
+            font-weight: bold;
+            font-family: "Times New Roman";
+            font-size: 80px;
+        }
+
+        .secondp {
+            font-size: 30px;
+        }
+
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+        }
+
+
+
+        .firstp {
+            font-weight: bold;
+            font-family: "Times New Roman";
+            font-size: 80px;
+        }
+
+        .secondp {
+            font-size: 30px;
+        }
+        #a {
+            width:100%;
+            text-align: center;
+            font-size: 5px;
+            font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+        }
+
+        /*#wrap {*/
+            /*width: 100%;*/
+        /*}*/
+
+        /*#external-events {*/
+
+            /*width: 500px;*/
+            /*padding: 0 10px;*/
+            /*border: 1px solid #ccc;*/
+            /*background: #eee;*/
+            /*text-align: left;*/
+        /*}*/
+
+        /*#external-events h4 {*/
+            /*font-size: 16px;*/
+            /*margin-top: 0;*/
+            /*padding-top: 1em;*/
+        /*}*/
+
+        /*#external-events .fc-event {*/
+            /*margin: 10px 0;*/
+            /*cursor: pointer;*/
+        /*}*/
+
+        /*#external-events p {*/
+            /*margin: 1.5em 0;*/
+            /*font-size: 11px;*/
+            /*color: #666;*/
+        /*}*/
+
+        /*#external-events p input {*/
+            /*margin: 0;*/
+            /*vertical-align: middle;*/
+        /*}*/
+
+        /*#calendar {*/
+            /*clear:both;*/
+            /*width: 100%;*/
+            /*height: 100%;*/
+        /*}*/
+
+        div.g_calendar{
+            margin: auto;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <<header>
+
+        <img src="http://localhost:2722/image/webheader.jpg" style="width:100%;height:100%">
+
+    </header>
+    <hr>
+    <br><br><br>
+    <hr>
+    <br><br><br>
+
+    <div class="container-fluid">
+        <table id="insertTable2" border="0" class="table table-striped table-hover">
+            <tr>
+                <th>이름</th>
+                <th>질병</th>
+                <th>방문 날짜</th>
+                <th>추후 방문계획</th>
+                <th>조치 및 처방</th>
+            </tr>
+            <% for(var i = 0;i < addUser.length;i++){
+            %>
+            <tr>
+                <td> <%= addUser[i].name %></td>
+                <td> <%= addUser[i].add_disease %></td>
+                <td> <%= addUser[i].visit %></td>
+                <td> <%= addUser[i].visit_schedule %></td>
+                <td> <%= addUser[i].care %></td>
+            </tr>
+            <%
+            } %>
+
+        </table>
+    </div>
+    <br><br><br>
+    <hr>
+
+    <div>
+    <iframe src="https://calendar.google.com/calendar/embed?src=genius9208%40gmail.com&ctz=Asia/Seoul"
+            style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+
+
+<hr>
+<br><br><br>
+
+
+<hr>
+<br><br><br>
+
+
+
+<footer class="container-fluid text-center">
+    <a href="#home" title="To Top">
+        <span class="glyphicon glyphicon-hand-up"></span>
+    </a>
+    <p>Homepage Made By <a title="Empty!! HAHA">Ubinet</a></p>
+    <p>팀원 : 김영남, 전준엽, 조재근, 함성호</p>
+</footer>
+</div>
+
+</body>
+
+</html>

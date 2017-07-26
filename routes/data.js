@@ -1,40 +1,43 @@
 var express = require("express");
 var router = express.Router();
-var User = require("../models/userDB");
+var dynamicData = require("../models/dynamic");
 var mongoose = require("mongoose");
-var db =  mongoose.connection;
+var db = mongoose.connection;
 var bodyParser = require("body-parser");
 require('body-parser-xml')(bodyParser);
-
+var db = mongoose.connection;
 
 var app = express();
 var user = undefined;
 
 app.set(bodyParser.json());
-app.set(bodyParser.urlencoded({ extended : true }));
+app.set(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.xml());
 
 
+router.post("/", function (req, res, next) {
+    var data = new Array();
+    data = req.body['m2m:cin']['con'][0].split("/");
 
-router.post("/",function(req,res,next){
-    user = new User({
-       name : req.body['m2m:cin']['cr'][0],
-       content : req.body['m2m:cin']['con'][0],
-       resourceId : req.body['m2m:cin']['ri'][0],
-       created_at : req.body['m2m:cin']['ct'][0]
-   });
+    data = new dynamicData({
+        LTID : req.body['m2m:cin']['ci'][0],
+        pulse : req.body['m2m:cin']['con'][0],
+        lat : req.body['m2m:cin']['con'][0],
+        lon : req.body['m2m:cin']['con'][0],
+        time : req.body['m2m:cin']['ct'][0]
+    });
     console.log(user);
-    user.save(function(error,user){ 
-        if(error) return res.json("error saved user's Data");
+    data.save(function (error, data) {
+        if (error) return res.json("error saved user's Data");
         return res.send('send well');
-      });
-   });
+    });
+});
 
 
-router.get("/",function(req,res,next){
-     user.findData(req.body.name,function(err,user){
-          if(err) return res.status(404).send(new Error("user Not Found"));
-          return res.status(200).json(user);
+router.get("/", function (req, res, next) {
+    user.findData(req.body.name, function (err, user) {
+        if (err) return res.status(404).send(new Error("user Not Found"));
+        return res.status(200).json(user);
     })
 });
 

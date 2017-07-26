@@ -5,71 +5,53 @@ var Schema = mongoose.Schema;
 mongoose.Promise = global.Promise;
 
 var userSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    age: {
-        type: Number,
-        trim: true
-    },
+
     LTID: {
-        type: String,
-        required: true
-    },
-    beatData: {
-        type: Number,
-        required: true
-    },
-    heartData: {
-        type: Number,
-        required: true
-    },
-    content: {
-        type: String,
-        required: true
-    },
-    lat: {
-        type: Number
-    },
-    lon: {
-        type: Number
-    },
-    spot: {
         type: String
-    },
-    resourceId: {
-        type: String,
-        required: true,
-        trim: true
     },
     created_at: {
         type: Date
     },
-    address: {
-        type: String,
-        trim: true
+    gender: {
+        type: String
     },
-    phoneNumber: {
-        type: String,
-        trim: true
+    tel: {
+        type: String
+    },
+    born_at :{
+        type:String
+    },
+    address: {
+        type: String
+    },
+    age: {
+        type: Number
+    },
+    name: {
+        type: String
     },
     disease: {
-        type: String,
-        trim: true
+        type: String
     },
-    adminId: {
+    Location: {
+        type: String
+    },
+    Doctor_ID: {
         type: String
     }
-
 });
-//
-// userSchema.methods.findUserData = function (adminId, done) {
-//
-//     return this.model('User').find({name: this.name}, cb);
-// };
 
+
+
+// 유저 전체 데이터 가져오기
+userSchema.methods.findUserAllData = function (callback) {
+    return this.model('User').find({}, callback);
+};
+
+
+userSchema.methods.findData = function findData(name, cb) {
+    return this.model('User').find({name: this.name}, cb);
+};
 
 var User = mongoose.model('User', userSchema);
 
