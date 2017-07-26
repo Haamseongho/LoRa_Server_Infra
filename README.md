@@ -85,3 +85,12 @@ NM에 원하는 값을 넣어 주시고 만들어줘야 하는데 NM은 한 번�
 <img src="./images/Lora_arc3.JPG" />
 
 [ need more tutorial -- arduino & server code tutorail ] 
+
+
+># Sns 활용 로그인 api : <a link="./explain_oss/oss_sns_login.html" />
+># Arduino 활용 UpLink api : <a link="./explain_oss/oss_arduino.html" />
+># 지도API 활용 : <a link="./explain_oss/oss_map.html" />
+># QR코드 API 활용 : <a link="./explain_oss/oss_QRcode.html" />
+># LoRa & ThingPlug API 활용 : <a link="./explain_oss/oss_LoRa_ThingPlug.html" />
+
+
