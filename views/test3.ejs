@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<svg width="960" height="500"></svg>-->
+    <!--<script src="http://d3js.org/d3.v4.min.js"></script>-->
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"
+            data-do-not-move="true" data-provides="jQuery"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+
+    <style>
+        table, tr, th, td {
+            border: 1px solid black;
+            width: 700px;
+        }
+
+        table {
+            margin: auto;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        td {
+            font-family: arial;
+            font-size: 12px;
+        }
+    </style>
+
+</head>
+
+<body>
+<!--<svg width="960" height="500"></svg>-->
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<br><br><br><br><br>
+<hr>
+
+<div class="container-fluid text-center">
+    <table>
+        <tr>
+            <th>LTID</th>
+            <!--<th>이름</th>-->
+            <!--<th>성별</th>-->
+            <!--<th>나이</th>-->
+            <!--<th>지역</th>-->
+            <!--<th>담당의사</th>-->
+            <th>맥박</th>
+            <th>위도</th>
+            <th>경도</th>
+            <th>시간</th>
+        </tr>
+
+        <% for (var i = DynamicData.length-10; i < DynamicData.length; i++) {
+        %>
+        <tr>
+            <td><%= DynamicData[i].LTID %></td>
+            <td><%= DynamicData[i].pulse %></td>
+            <td><%= DynamicData[i].lat %></td>
+            <td><%= DynamicData[i].lon %></td>
+            <td><%= DynamicData[i].time.toLocaleString() %></td>
+        </tr>
+        <%
+        } %>
+
+    </table>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<script>
+    var a=[ ];
+    var b=[ ];
+</script>
+
+<% for (var i = DynamicData.length-10; i < DynamicData.length; i++) { %>
+<script>
+    a.push(<%= DynamicData[i].pulse %>);
+    b.push('<%= DynamicData[i].time %>');
+</script>
+<% } %>
+
+
+
+<script>
+    var j=0;
+    b.sort();
+    var chart = Highcharts.chart('container', {
+
+        title: {
+            text: '<%= UsersData.name %> Data'
+        },
+        xAxis: {
+            categories: b,
+            id: 'x-axis'
+        },
+        yAxis: {
+            min : 50,
+            max: 100,
+            title: {
+                text: 'pulse'
+            }
+        },
+
+        subtitle: {
+            floating: true,
+            align: 'left',
+            x: 100,
+            y: 70
+
+        },
+
+        series: [{
+            name:"Pulse",
+            data : a
+
+        }]
+
+    });
+</script>
+
+
+</body>
+</html>

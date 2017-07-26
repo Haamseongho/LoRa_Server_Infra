@@ -10,25 +10,24 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"
             data-do-not-move="true" data-provides="jQuery"></script>
+
     <style>
         table, tr, th, td {
-            border: 1px solid black;
-            width: 700px;
+            solid: black;
         }
-
         table {
             margin: auto;
         }
-
         th {
             text-align: center;
         }
-
         td {
+            padding-top: 5px;
             font-family: arial;
-            font-size: 12px;
-        }
+            font-size: 15px;
+            text-align: center;
 
+        }
         header {
             background-color: #eeffdd;
             background-image: url("");
@@ -36,12 +35,14 @@
             height: 200px;
             width: 100%;
         }
-
         nav {
             background-color: #abcdef;
             float: left;
         }
 
+        #btn{
+            font-weight: bold;
+        }
         div#leftNav {
             float: left;
             width: 255px;
@@ -51,16 +52,13 @@
             margin-right: 35px;
             position: fixed;
         }
-
         #mainsection {
             clear: both;
         }
-
         #mainBody {
             margin-left: 300px;
             margin-top: 100px;
         }
-
         /*.subHeading{*/
         /*color:#2a2a2a;*/
         /*font-size:.857em;*/
@@ -68,17 +66,14 @@
         /*font-weight:bold;*/
         /*margin:0;*/
         /*}*/
-
         .firstp {
             font-weight: bold;
             font-family: "Times New Roman";
             font-size: 80px;
         }
-
         .secondp {
             font-size: 30px;
         }
-
         .slide {
             animation-name: slide;
             -webkit-animation-name: slide;
@@ -86,7 +81,6 @@
             -webkit-animation-duration: 1s;
             visibility: visible;
         }
-
         input[name=search] {
             width: 130px;
             box-sizing: border-box;
@@ -101,17 +95,10 @@
             -webkit-transition: width 0.4s ease-in-out;
             transition: width 0.4s ease-in-out;
         }
-
         input[name=search]:focus {
             width: 100%;
         }
-
     </style>
-    <script type="text/javascript">
-        $(function () {
-
-        })
-    </script>
 
 </head>
 
@@ -120,9 +107,9 @@
 
 <div class="container-fluid">
     <header>
-        <div class="container">
-            <p class="firstp">UBINET</p>
-        </div>
+
+        <img src="http://localhost:2722/image/webheader.jpg" style="width:100%;height:100%">
+
     </header>
 
     <div class="container-fluid">
@@ -133,177 +120,310 @@
                         </a></li>
                     <li class="secondp"><a href="#list">명단
                         </a></li>
-                    <li class="secondp"><a href="#visit">방문 계획</a></li>
+
                     <li class="secondp"><a href="#plus">회원 추가</a></li>
                     <li class="secondp"><a href="#delete">회원 삭제</a></li>
                 </ul>
             </div>
-
-            <form action="" method="post">
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <div class="nav navbar-nav navbar-right">
-                        <input type="text" name="search" placeholder="search...">
+            <div style="margin-left:270px " >
+                <form action = "/" method ="get">
+                    <h2 >ADMIN PAGE</h2>
+                    <div align="right">
+                        <p> 관리자 : <%=AdminsData.email%>
+                            <input type ="submit" id = "logout" value="logout" align="right">
+                        </p>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
+
+            <!-- <form action="" method="post">
+                 <div class="collapse navbar-collapse" id="myNavbar">
+                     <div class="nav navbar-nav navbar-right">
+                         <input type="text" name="search" placeholder="search...">
+                     </div>
+                 </div>
+             </form>-->
 
             <div id="mainSection" class="container-fluid">
                 <div id="mainBody">
+
                     <div class="row slideanim">
                         <h1 id="list" class="subHeading">명단</h1><br>
-                        <div class="container-fluid text-center">
-                            <table id="inserTable">
+                        <div style="border: 1px solid gold; float: left; width: 30%;padding:10px;  padding-top:0px;">
+                            <h3>의사 목록</h3>
+                            <table border='0' class="table table-striped table-hover ">
+                                <thead>
                                 <tr>
-                                    <td>코드</td>
-                                    <td>이름</td>
-                                    <td>주소</td>
-                                    <td>맥박</td>
-                                    <td>심전도</td>
-                                    <td>전화번호</td>
-                                    <td>보유 질환</td>
+                                    <th width="66%">의사 코드</th>
+                                    <th width="33%">이름</th>
                                 </tr>
+                                </thead>
+                                <% for (var i = 0; i < DoctorsData.length; i++) {
+                                %>
+                                <tr>
+                                    <th><p><%=DoctorsData[i].Doctor_ID%></p></th>
+                                    <th><p><%=DoctorsData[i].Doctor_name%></p></th>
+                                </tr>
+                                <%
+                                } %>
+                            </table>
+                        </div>
+                        <div style="border: 1px solid gold; float: left; width: 69%; padding:10px;padding-top:0px; margin-left:10px;">
+                            <h3>환자 목록</h3>
+                            <table border='0' class="table table-striped table-hover ">
+                                <thead>
+                                <tr>
+                                    <th width="35W%">LTID</th>
+                                    <th width="8%">이름</th>
+                                    <th width="10%">성별</th>
+                                    <th width="10%">나이</th>
+                                    <th width="18%">담당의사 코드</th>
+                                    <th width="16%">담당의사 변경</th>
+                                </tr>
+                                </thead>
+                                <% for (var i = 0; i < UsersData.length; i++) {
+                                %>
+                                <tr>
+                                    <form action="/main/test3" method="get">
+                                        <th ><input type="submit"class="btn btn-default"style=" width:100%" id="btn"name="LTID" value="<%=UsersData[i].LTID%>"></th>
+                                        <th><p><%=UsersData[i].name%></p></th>
+                                        <th><p><%=UsersData[i].gender%></p></th>
+                                        <th><p><%=UsersData[i].age%></p></th>
+                                        <th><p><%=UsersData[i].Doctor_ID%></p></th>
+                                    </form>
+                                    <form action="/admin_change_doctor" method="get">
+                                        <th>
+                                            <input type="hidden" id="LTID" name="LTID" value="<%=UsersData[i].LTID%>">
+                                            <input type="hidden" id="Doctor_ID" name="Doctor_ID" value="<%=UsersData[i].Doctor_ID%>">
 
-
+                                            <input type="submit"class="btn btn-primary"id="btn" name="changedoctor" value="변경">
+                                        </th>
+                                    </form>
+                                </tr>
+                                <%
+                                } %>
                             </table>
                         </div>
                     </div>
+
+
+
+
                     <br><br><br>
                     <hr>
 
-
-                    <div class="row slideanim">
-                        <h1 id="visit" class="subHeading">방문 계획</h1><br>
-                        <div class="container-fluid text-center bg-grey">
-
-                        </div>
-                    </div>
-                    <br><br><br>
-                    <hr>
 
 
                     <div class="row slideanim">
                         <h1 id="plus" class="subHeading">회원 추가</h1><br>
-                        <div class="container-fluid text-center">
+                        <div class="container text-center" style="width:20%">
+                            <tabel border ="0" >
 
-                            <label for="Institutionid">Institution ID : </label>
-                            <input type="text" id="LTID" name="LIID" placeholder='LTID'>
-                            <br><br><br>
+                                <form action ="/main/addoldman"method="post"  class="form-horizontal">
+                                    <div class="form-group">
+                                        <tr>
+                                            <td>
+                                                <label class="control-label" for="LTID">Institution ID </label>
+                                            </td>
+                                            <td>
+                                                <input class="form-control" id="LTID" name="LTID"type="text" placeholder="LTID">
+                                            </td>
+                                        </tr>
+                                    </div>
 
-                            <label for="name">이름 : </label>
-                            <input type="text" id="name" name="name" placeholder='이름'>
-                            <br><br><br>
+                                    <div class="form-group">
+                                        <tr>
+                                            <td>
+                                                <label class="control-label" for="name">이름 </label>
+                                            </td>
+                                            <td>
+                                                <input class="form-control" id="name" name="name"type="text" placeholder="이름">
+                                            </td>
+                                        </tr>
+                                    </div>
 
-                            <label for="address">주소 : </label>
-                            <input type="text" id="address" name="address" placeholder='주소'>
-                            <br><br><br>
+                                    <div class="form-group">
+                                        <tr>
+                                            <td>
+                                                <label class="control-label" for="gender">성별 </label>
+                                            </td>
+                                            <td>
+                                                <input class="form-control" id="gender" name="gender"type="text" placeholder="성별">
+                                            </td>
+                                        </tr>
+                                    </div>
 
-                            <label for="tel">연락처 : </label>
-                            <input type="text" id="tel" name="tel" placeholder='연락처'>
-                            <br><br><br>
+                                    <div class="form-group">
+                                        <tr>
+                                            <td>
+                                                <label class="control-label" for="age">나이 </label>
+                                            </td>
+                                            <td>
+                                                <input class="form-control" id="age" name="age"type="number" placeholder="나이"min="0">
+                                            </td>
+                                        </tr>
+                                    </div>
+                                    <div class="form-group">
+                                        <tr>
+                                            <td>
+                                                <label class="control-label" for="phone">전화번호 </label>
+                                            </td>
+                                            <td>
+                                                <input class="form-control" id="phoneNumber" name="phoneNumber"type="text" placeholder="전화번호">
+                                            </td>
+                                        </tr>
+                                    </div>
 
-                            <label for="age">나이 : </label>
-                            <input type="number" id="age" name="age" placeholder='나이' min="0">
-                            <br><br><br>
+                                    <div class="form-group">
+                                        <tr>
+                                            <td>
+                                                <label class="control-label" for="Location">주소 </label>
+                                            </td>
+                                            <td>
+                                                <input class="form-control" id="Location" name="Location"type="text" placeholder="주소">
+                                            </td>
+                                        </tr>
+                                    </div>
 
-                            <label for="pain">질병 : </label>
-                            <input type="text" id="pain" name="pain" placeholder='질병'>
-                            <br><br><br>
+                                    <div class="form-group">
+                                        <tr>
+                                            <td>
+                                                <label class="control-label" for="Doctor_ID">담당의사 코드 </label>
+                                            </td>
+                                            <td>
+                                                <input class="form-control" id="Doctor_ID" name="Doctor_ID"type="text" placeholder="의사코드">
+                                            </td>
+                                        </tr>
+                                    </div>
+                                    <div class="form-group">
+                                        <tr>
+                                            <td>
+                                                <label class="control-label" for="disease">질병 </label>
+                                            </td>
+                                            <td>
+                                                <input class="form-control" id="disease" name="disease"type="text" placeholder="질병">
+                                            </td>
+                                        </tr>
+                                    </div>
+                                    <div class="form-group">
+                                        <tr>
+                                            <td>
+                                                <label class="control-label" for="bornat">생년월일 </label>
+                                            </td>
+                                            <td>
+                                                <input class="form-control" id="bornat" name="bornat"type="text" placeholder="생년월일">
+                                            </td>
+                                        </tr>
+                                    </div>
 
 
-                            <button type="button" id="sendBtn2" value="추가하기">
-                                추가하기
-                            </button>
+
+                                    <input type="submit" class="btn btn-success" id="btn" value="추가하기">
+
+                                </form>
+                            </tabel>
                         </div>
                     </div>
 
 
                     <br><br><br>
                     <hr>
-                    <script>
-                        $(document).ready(function () {
-                            $("#sendBtn2").click(function () {
-                                var name = $('#name').val();
-                                var LTID = $('#LTID').val();
-                                var address = $('#address').val();
-                                var phoneNumber = $('#tel').val();
-                                var age = $('#age').val();
-                                var disease = $('#pain').val();
-                                alert(phoneNumber + "/" + disease);
-                                $.ajax({
-                                        type: "post",
-                                        url: '/main',
-                                        data: {
-                                            name: name,
-                                            age: age,
-                                            LTID: LTID,
-                                            beatData: 0,
-                                            heartData: 0,
-                                            content: "abc",
-                                            lat: 38.123461,
-                                            lon: 127.245321,
-                                            spot: "seoul",
-                                            resourceId: "abc",
-                                            created_at: Date(),
-                                            address: 'seoul',
-                                            phoneNumber: phoneNumber,
-                                            disease: disease
-                                        },
-                                        dataType: "json",
-                                        success: function (data) {
-                                            $("#inserTable").append("<tr> <td> " + data.LTID + "</td>"
-                                                + "<td>" + data.name + "</td>" + "<td>" + data.address + "</td>"
-                                                + "<td>" + data.beatData + "</td>" + "<td>" + data.heartData + "</td>"
-                                                + "<td>" + data.phoneNumber + "</td>" + "<td>" + data.disease + "</td></tr>");
 
-                                        }
-                                    }
-                                );
-                            });
-                        });
 
-                    </script>
+                    <div class="row slideanim">
+                        <h1 id="delete" class="subHeading">회원 삭제</h1><br>
+                        <div class="container-fluid text-center">
+                            <table border="0" width="70%"  class="table table-striped table-hover ">
+                                <thead>
+                                <tr>
+                                    <th width="18%">LTID</th>
+                                    <th width="10%">이름</th>
+                                    <th width="8%">성별</th>
+                                    <th width="8%">나이</th>
+                                    <th width="12%">지역</th>
+                                    <th width="18%">담당의사 코드</th>
+                                    <th width="16%">회원 삭제</th>
 
-                    <form action="" method="post">
-                        <div class="row slideanim">
-                            <h1 id="delete" class="subHeading">회원 삭제</h1><br>
-                            <div class="container-fluid text-center">
-                                <table>
-                                    <tr>
-                                        <th>선택</th>
-                                        <th>코드</th>
-                                        <th>이름</th>
-                                        <th>주소</th>
-                                        <th>맥박</th>
-                                        <th>심전도</th>
-                                        <th>전화번호</th>
-                                        <th>보유 질환</th>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" name="delmenber"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td><a href="#"></a></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" name="delmenber"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </table>
-                                <br><br>
-                                <input type="submit" id="sendBtn3" value="선택 삭제">
-                            </div>
+                                </tr>
+                                </thead>
+                                <% for (var i = 0; i < UsersData.length; i++) {
+                                %>
+
+                                <tr>
+                                    <form action ="/main/deloldman"method="post">
+                                        <th><p><%=UsersData[i].LTID%></p></th>
+                                        <th><p><%=UsersData[i].name%></p></th>
+                                        <th><p><%=UsersData[i].gender%></p></th>
+                                        <th><p><%=UsersData[i].age%></p></th>
+                                        <th><p><%=UsersData[i].Location%></p></th>
+                                        <th><p><%=UsersData[i].Doctor_ID%></p></th>
+                                        <th><input type="submit"class="btn btn-danger"id="btn" value="삭제하기"></th>
+                                        <input type="hidden" id="LTID" name="LTID" value="<%=UsersData[i].LTID%>">
+                                        <input type="hidden" id="Location" name="Location" value="<%=UsersData[i].Location%>">
+                                    </form>
+                                </tr>
+                                <%
+                                } %>
+                            </table>
                         </div>
-                    </form>
+                    </div>
+
+                    <br><br><br>
+                    <hr>
+
+
+
+                    <div class="row slideanim">
+                        <h1 id="plus" class="subHeading">의사 추가</h1><br>
+                        <div class="container text-center" style="width:20%">
+                            <tabel border ="0" >
+
+                                <form action ="/main/adddoctor" method="post"  class="form-horizontal">
+                                    <div class="form-group">
+                                        <tr>
+                                            <td>
+                                                <label class="control-label" for="Doctor_ID">의사 ID </label>
+                                            </td>
+                                            <td>
+                                                <input class="form-control" id="Doctor_ID" name="Doctor_ID"type="text" placeholder="Doctor_ID">
+                                            </td>
+                                        </tr>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <tr>
+                                            <td>
+                                                <label class="control-label" for="Doctor_name">이름 </label>
+                                            </td>
+                                            <td>
+                                                <input class="form-control" id="Doctor_name" name="Doctor_name"type="text" placeholder="이름">
+                                            </td>
+                                        </tr>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <tr>
+                                            <td>
+                                                <label class="control-label" for="Doctor_pw">비밀번호 </label>
+                                            </td>
+                                            <td>
+                                                <input class="form-control" id="Doctor_pw" name="Doctor_pw"type="text" placeholder="Doctor_pw">
+                                            </td>
+                                        </tr>
+                                    </div>
+
+
+                                    <input type="submit" class="btn btn-success" id="btn2" value="의사추가하기">
+
+                                </form>
+                            </tabel>
+                        </div>
+                    </div>
+
+
+
+
+
                     <br><br><br>
                     <hr>
                 </div>
@@ -322,43 +442,58 @@
     <p>팀원 : 김영남, 전준엽, 조재근, 함성호</p>
 </footer>
 
+<!--<script>-->
+
+<!--$(document).on("click", "#changedoctor", function () {-->
+<!--window.location.href = "/main/admin_change_doctor";-->
+<!--});-->
+
+
+<!--</script>-->
+
+
 <script>
     $(document).ready(function () {
-        // Add smooth scrolling to all links in navbar + footer link
-        $(".nav a, footer a[href='#home']").on('click', function (event) {
-            // Make sure this.hash has a value before overriding default behavior
-            if (this.hash !== "") {
-                // Prevent default anchor click behavior
-                event.preventDefault();
-
-                // Store hash
-                var hash = this.hash;
-
-                // Using jQuery's animate() method to add smooth page scroll
-                // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-                $('html, body').animate({
-                    scrollTop: $(hash).offset().top
-                }, 900, function () {
-
-                    // Add hash (#) to URL when done scrolling (default click behavior)
-                    window.location.hash = hash;
-                });
-            } // End if
-        });
-
-        $(window).scroll(function () {
-            $(".slideanim").each(function () {
-                var pos = $(this).offset().top;
-
-                var winTop = $(window).scrollTop();
-                if (pos < winTop + 600) {
-                    $(this).addClass("slide");
+        $("#sendBtn2").click(function () {
+            var name = $('#name').val();
+            var LTID = $('#LTID').val();
+            var address = $('#address').val();
+            var phoneNumber = $('#tel').val();
+            var age = $('#age').val();
+            var disease = $('#pain').val();
+            alert(phoneNumber + "/" + disease);
+            $.ajax({
+                    type: "post",
+                    url: '/main',
+                    data: {
+                        name: name,
+                        age: age,
+                        LTID: LTID,
+                        beatData: 0,
+                        heartData: 0,
+                        content: "abc",
+                        lat: 38.123461,
+                        lon: 127.245321,
+                        spot: "seoul",
+                        resourceId: "abc",
+                        created_at: Date(),
+                        address: 'seoul',
+                        phoneNumber: phoneNumber,
+                        disease: disease
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        var index = 0;
+                        index++;
+                        $("#inserTable").append("<tr> <td id='dLTID'> " + data.LTID + "</td>"
+                            + "<td id='dName'>" + data.name + "</td>" + "<td>" + data.address + "</td>"
+                            + "<td>" + data.phoneNumber + "</td>" + "<td>" + data.disease + "</td>");
+                    }
                 }
-            });
+            );
         });
-    })
+    });
 </script>
-
 
 </body>
 </html>

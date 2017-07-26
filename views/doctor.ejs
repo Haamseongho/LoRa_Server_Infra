@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Frame</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"
+            data-do-not-move="true" data-provides="jQuery"></script>
+    <style>
+
+
+        table {
+            margin: auto;
+        }
+
+
+
+        td ,th {
+            padding-top: 5px;
+            font-family: arial;
+            font-size: 15px;
+            text-align: center;
+            font-weight: bold;
+
+        }
+        header {
+            background-color: #eeffdd;
+            background-image: url("");
+            float: left;
+            height: 200px;
+            width: 100%;
+        }
+
+        nav {
+            background-color: #abcdef;
+            float: left;
+
+        }
+
+        div#leftNav {
+            float: left;
+            width: 270px;
+            margin-top: 200px;;
+            /*display:inline-block;*/
+            margin-left: 15px;
+            margin-right: 35px;
+            position: fixed;
+        }
+
+        #mainsection {
+            clear: both;
+        }
+
+        #mainBody {
+            margin-left: 300px;
+        }
+        #btn{
+            font-weight: bold;
+        }
+
+        #go_google{
+            font-weight: bold;
+        }
+
+        .secondp {
+            font-size: 30px;
+        }
+
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+        }
+
+        input[name=search] {
+            width: 130px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-image: url('/a.PNG');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+
+        input[name=search]:focus {
+            width: 100%;
+        }
+
+    </style>
+
+</head>
+
+<body id="home">
+
+<div class="container-fluid">
+    <header>
+
+        <img src="http://localhost:2722/image/webheader.jpg" style="width:100%;height:100%">
+
+    </header>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="leftNav">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="secondp"><a href="#home">HOME
+                        </a></li>
+                    <li class="secondp"><a href="#list">명단
+                        </a></li>
+
+                    <li class="secondp"><a href="#plus">특이사항 및 질병</a></li>
+
+                </ul>
+            </div>
+
+
+            <!-- TABLE -->
+            <div align="right">
+                <form action="/" method="get">
+                    <h4><%= userData[0].Doctor_ID %>님 환영합니다.
+                        <input type="submit" class="btn btn-primary"id="logout" value="logout">
+                    </h4>
+                </form>
+            </div>
+
+            <div id="mainSection" class="container-fluid">
+                <div id="mainBody">
+                    <form action="/doctor/detail" method="get" target="_self" id="secondBody">
+                        <div class="row slideanim">
+                            <h1 id="list" class="subHeading">명단</h1><br>
+                            <div class="container-fluid text-center">
+                                <table border="0" class="table table-striped table-hover ">
+                                    <tr>
+
+                                        <th>성명</th>
+                                        <th>나이</th>
+                                        <th>성별</th>
+                                        <th>연락처</th>
+                                        <th>생년월일</th>
+                                        <th>요주질병</th>
+                                        <th>생성일</th>
+                                        <th>자세히보기</th>
+                                    </tr>
+
+                                    <% for (var i = 0; i < userData.length; i++) {
+                                    %>
+                                    <tr>
+                                        <td id="name_table"><p id="pName<%= i %>"> <%= userData[i].name %></p></td>
+                                        <td><%= userData[i].age %></td>
+                                        <td><%= userData[i].gender %></td>
+                                        <td><%= userData[i].tel %></td>
+                                        <td><%= userData[i].born_at %></td>
+                                        <td><%= userData[i].disease %></td>
+                                        <td><%= userData[i].created_at %></td>
+                                        <form action="/doctor/detail" method="get">
+                                            <td id="btnCheckState">
+                                                <input type="hidden" name="doctorid" value="<%= userData[0].Doctor_ID %>"></p>
+                                                <input type="hidden" name="name" value="<%= userData[i].name %>"></p>
+                                                <input type="submit" value="상세정보확인">
+                                            </td>
+                                        </form>
+                                    </tr>
+                                    <%
+                                    } %>
+
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+                    <br><br><br>
+                    <hr>
+
+
+                    <!-- 두 번째 테이블 !-->
+                    <form action="/doctor/detail/addInfo" method="post">
+                        <div class="row slideanim">
+                            <h1 id="plus" class="subHeading">특이사항 및 질병</h1><br>
+                            <div class="container text-center" style="width:20%">
+                                <br/><br/>
+                                <div class="form-group">
+                                    <tr>
+                                        <td>
+                                            <label class="control-label" for="Institutionid">LTID </label>
+                                        </td>
+                                        <td>
+                                            <input class="form-control" id="LTID2" name="LTID2"type="text" placeholder="LTID">
+                                        </td>
+                                    </tr>
+                                </div>
+                                <div class="form-group">
+                                    <tr>
+                                        <td>
+                                            <label class="control-label" for="name">이름 </label>
+                                        </td>
+                                        <td>
+                                            <input class="form-control" id="name2" name="name2"type="text" placeholder="이름">
+                                        </td>
+                                    </tr>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <tr>
+                                        <td>
+                                            <label class="control-label" for="disease">질병 </label>
+                                        </td>
+                                        <td>
+                                            <input class="form-control" id="disease2" name="disease2"type="text" placeholder="질병">
+                                        </td>
+                                    </tr>
+                                </div>
+                                <div class="form-group">
+                                    <tr>
+                                        <td>
+                                            <label class="control-label" for="visitDate">방문 날짜 </label>
+                                        </td>
+                                        <td>
+                                            <input class="form-control" id="visitDate" name="visitDate"type="text" placeholder="방문 날짜">
+                                        </td>
+                                    </tr>
+                                </div>
+                                <div class="form-group">
+                                    <tr>
+                                        <td>
+                                            <label class="control-label" for="nextVisit">추후 방문 </label>
+                                        </td>
+                                        <td>
+                                            <input class="form-control" id="nextVisit" name="nextVisit"type="text" placeholder="추후 방문">
+                                        </td>
+                                    </tr>
+                                </div>
+
+                                <div class="form-group">
+                                    <tr>
+                                        <td>
+                                            <label class="control-label" for="care">조치 및 처방 </label>
+                                        </td>
+                                        <td>
+                                            <input class="form-control" id="care" name="care"type="text" placeholder="조치 및 처방">
+                                        </td>
+                                    </tr>
+                                </div>
+
+                                <input type="submit" name="btnCheck" id = "btn" class="btn btn-success" id="btn" value="추가하기"></input>
+                            </div>
+                        </div>
+                    </form>
+
+                    <hr>
+                    <br><br><br>
+
+                    <div class="row slideanim">
+                        <h1 id="doctor_calendar" class="subHeading">스케쥴 보기</h1><br>
+                        <div class="container text-center" style="width:20%">
+                        <div>
+                            <iframe style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+                        </div>
+                        <button type="button" id="go_google" class="btn btn-success"> 구글 로그인 하기</button>
+                        </div>
+                    </div>
+
+
+
+                    <br><br><br>
+                    <hr>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+<br><br><br>
+
+<footer class="container-fluid text-center">
+    <a href="#home" title="To Top">
+        <span class="glyphicon glyphicon-hand-up"></span>
+    </a>
+    <p>Homepage Made By <a title="Empty!! HAHA">Ubinet</a></p>
+    <p>팀원 : 김영남, 전준엽, 조재근, 함성호</p>
+</footer>
+
+
+
+
+</body>
+</html>
