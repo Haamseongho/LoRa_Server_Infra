@@ -87,7 +87,7 @@ NM에 원하는 값을 넣어 주시고 만들어줘야 하는데 NM은 한 번�
 [ need more tutorial -- arduino & server code tutorail ] 
 
 
-># Sns 활용 로그인 api : [SNS] (https://haamseongho.github.io/Android_lecture_by_Haam/)
+># Sns 활용 로그인 api : [SNS] (https://haamseongho.github.io/ubinet/explain_oss/oss_map.html)
 ># Arduino 활용 UpLink api : [a link] ARDUINO (https://haamseongho.github.io/Android_lecture_by_Haam/)
 ># 지도API 활용 : [a link](https://github.com/Haamseongho/ubinet/blob/master/explain_oss/oss_map.html)
 ># QR코드 API 활용 : [a link](https://github.com/Haamseongho/ubinet/blob/master/explain_oss/oss_QRcode.html)
