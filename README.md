@@ -1,5 +1,5 @@
 
-# Ubinet_서버
+# Ubinet
 
 ## LORA [OpenSource - 1]
 
