@@ -31,12 +31,14 @@ var searchName = require("./routes/searchName");
 var searchSpot = require("./routes/searchSpot");
 var fcmPush = require("./routes/push");
 var test3 = require("./routes/test3");
+var map= require("./routes/map");
 var register = require("./routes/register");
 var doctorRouter = require("./routes/doctor");
 var adminRouter = require("./routes/admin");
+var overdose = require("./routes/overdose");
 var change_doctorRouter = require("./routes/admin_change_doctor");
 var doctor_change = require("./routes/doctor_change");
-var med_form_router = require("./routes/med_form/med_form_router");
+
 
 
 //           session & passports           //
@@ -99,11 +101,8 @@ app.use("/",adminRouter);
 app.use(express.static('public'));
 app.use("/",change_doctorRouter);
 app.use("/",doctor_change);
-
-app.use("/medform",med_form_router);
-// 투약 관련된 내용들 모두 정리(삽입,삭제,갱신,검색)
-
-
+app.use("/",map);
+app.use("/",overdose);
 /*
  app.use('/',function (req, res, next) {
  var err = new Error('Not Found');

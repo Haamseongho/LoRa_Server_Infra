@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+ <link rel='stylesheet' href='/stylesheets/style.css'/>
+ <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+ <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"
+         data-do-not-move="true" data-provides="jQuery">
+ </script>
+
+ <style>
+  header {
+   background-color: #eeffdd;
+   float: left;
+   height: 200px;
+   width: 100%;
+  }
+
+
+  div#leftNav {
+   float: left;
+   width: 255px;
+   margin-top: 200px;;
+   /*display:inline-block;*/
+   margin-left: 15px;
+   margin-right: 35px;
+   position: fixed;
+  }
+
+  #mainBody1 {
+   margin-left: 300px;
+   margin-top: 250px;
+
+  }
+
+  #mainBody2 {
+   margin-left: 500px;
+   margin-top: 100px;
+   margin-bottom: 100px;
+  }
+
+  h5, h6 {
+   font-size: .857em;
+   font-weight: normal;
+   line-height: 130%;
+   margin: 0;
+  }
+
+  .firstp {
+   font-weight: bold;
+   font-family: "Times New Roman";
+   font-size: 80px;
+  }
+
+  .secondp {
+
+   font-size: 30px;
+  }
+
+ </style>
+
+
+</head>
+<body>
+
+<div class="container-fluid">
+ <header>
+
+  <img src="http://localhost:2722/image/webheader.jpg" style="width:100%;height:100%">
+
+ </header>
+
+
+ <div class="container-fluid">
+  <div class="row">
+   <div id="leftNav">
+    <ul class="nav nav-pills nav-stacked">
+     <li class="secondp"><a href="">홈</a></li>
+     <li class="secondp"><a href="/overdose">투약 알림</a></li>
+     <li class="secondp"><a href="/map">위치(경로)조회</a></li>
+     <li class="secondp"><a href="">건강상태 조회</a></li>
+    </ul>
+   </div>
+   <div align ="center"id="mainSection" class="container-fluid">
+    <div id="mainBody1">
+
+     <h1>투약알림 추가</h1>
+     <div>
+      <form action="" method="post">
+       <p>약 명칭 :<input type="text" name="medi_name"></p>
+
+      <p>복용 시간 : <select name ="first_hour" size ="1"><% for(var i=0;i<24;i++){ %>
+        <option value=<%=i%>><%=i%></option><%} %></select>시
+       <select name ="first_min" size ="1"><% for(var i=0;i<60;i++){ %>
+        <option value=<%=i%>><%=i%></option><%} %></select>분</p>
+
+      <p>복용 기간:
+           <select name ="s_year" size ="1"><% for(var i=2017;i<2100;i++){ %>
+           <option value=<%=i%>><%=i%></option><%} %></select>년
+
+       <select name ="s_month" size ="1"><%for(var i=1;i<13;i++){%>
+        <option value=<%=i%>><%=i%></option><%} %></select>월
+
+       <select name ="s_day" size ="1"><%for(var i=1;i<32;i++){%>
+        <option value=<%=i%>><%=i%></option><%} %></select>일 ~
+
+       <select name ="e_year" size ="1"><%for(var i=2017;i<2100;i++){%>
+        <option value=<%=i%>><%=i%></option><%} %></select>년
+
+       <select name ="e_month" size ="1"><%for(var i=1;i<13;i++){%>
+        <option value=<%=i%>><%=i%></option><%} %></select>월
+
+       <select name ="e_day" size ="1"><%for(var i=1;i<32;i++){%>
+        <option value=<%=i%>><%=i%></option><%} %></select>일
+      </p>
+<input type="submit" name="add_alarm" value="알림추가">
+      </form>
+     </div>
+     <h1>투약알림 목록</h1>
+<div>
+<table border ="1" width="70%" style="text-align: center">
+ <tr>
+  <td width="20%">약명칭</td>
+  <td width="30%">복용시간</td>
+  <td width="50%">복용기간</td>
+
+ </tr>
+</table>
+</div>
+    </div>
+   </div>
+
+  </div>
+ </div>
+
+
+ <hr>
+ <hr>
+
+ <br><br><br>
+
+ <footer class="container-fluid text-center">
+  <a href="#home" title="To Top">
+   <span class="glyphicon glyphicon-hand-up"></span>
+  </a>
+  <p>Homepage Made By <a title="Empty!! HAHA">Ubinet</a></p>
+  <p>팀원 : 김영남, 전준엽, 조재근, 함성호</p>
+ </footer>
+</div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnRegister").click(function () {
+            location.href = "/register"
+        })
+    })
+</script>
+
+</html>
