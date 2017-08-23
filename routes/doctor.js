@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 var User = require("../models/userDB");
 var Doctor = require("../models/doctorDB");
-var AddUserDB = require("../models/Add_user_info");
+var AddUserDB = require("../models/add_user_info");
 
 var bodyParser = require("body-parser");
 
