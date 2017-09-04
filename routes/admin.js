@@ -6,7 +6,7 @@ var router = express.Router();
 var Admin = require("../models/adminDB");
 var Doctor = require("../models/doctorDB");
 var User = require("../models/userDB");
-var AddUserDB = require("../models/Add_user_info");
+var AddUserDB = require("../models/add_user_info");
 
 var bodyParser = require("body-parser");
 
