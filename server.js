@@ -10,8 +10,9 @@ var config = require('./config');
 var User = require("./models/userDB");
 var colors = require("colors");
 var Promise = require("es6-promise").Promise;
-var port = process.env.PORT || 2722;
+var port = process.env.PORT || 2721;
 //      DataBase     //
+
 var mongoose = require("mongoose");
 var db = mongoose.connection;
 var dbUrl = "mongodb://cadi_project:123123@ds155418.mlab.com:55418/cadi_project";
@@ -39,6 +40,9 @@ var overdose = require("./routes/overdose");
 var change_doctorRouter = require("./routes/admin_change_doctor");
 var doctor_change = require("./routes/doctor_change");
 
+
+var guardian = require("./routes/guardian");
+var users = require("./routes/userInfo");
 
 
 //           session & passports           //
@@ -103,6 +107,14 @@ app.use("/",change_doctorRouter);
 app.use("/",doctor_change);
 app.use("/",map);
 app.use("/",overdose);
+/*
+보호자 router
+ */
+app.use("/guard",guardian);
+/*
+디바이스 사용자
+ */
+app.use("/user",users);
 /*
  app.use('/',function (req, res, next) {
  var err = new Error('Not Found');
