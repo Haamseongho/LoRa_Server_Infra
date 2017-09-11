@@ -26,23 +26,14 @@ var indexRouter = require("./routes/index");
 
 
 var dataRouter = require("./routes/data");
-var search = require("./routes/search");
-var mainRouter = require("./routes/main");
-var searchName = require("./routes/searchName");
-var searchSpot = require("./routes/searchSpot");
 var fcmPush = require("./routes/push");
 var test3 = require("./routes/test3");
 var map= require("./routes/map");
-var register = require("./routes/register");
-var doctorRouter = require("./routes/doctor");
-var adminRouter = require("./routes/admin");
 var overdose = require("./routes/overdose");
-var change_doctorRouter = require("./routes/admin_change_doctor");
-var doctor_change = require("./routes/doctor_change");
 
 
-var guardian = require("./routes/guardian");
-var users = require("./routes/userInfo");
+var guardian = require("./routes/guard/guardian");
+var users = require("./routes/user/userInfo");
 
 
 //           session & passports           //
@@ -93,18 +84,9 @@ mongoose.connect(dbUrl, function (err) {
 
 app.use("/", indexRouter);
 app.use("/data", dataRouter);
-app.use("/search", search);
-app.use("/search/Name", searchName);
-app.use("/search/spot", searchSpot);
-app.use("/", mainRouter);
 app.use("/push", fcmPush);
-app.use("/register", register);
 app.use("/",test3);
-app.use("/",doctorRouter);
-app.use("/",adminRouter);
 app.use(express.static('public'));
-app.use("/",change_doctorRouter);
-app.use("/",doctor_change);
 app.use("/",map);
 app.use("/",overdose);
 /*
@@ -127,9 +109,6 @@ app.use("/user",users);
 var server = http.createServer(app);
 // setUpPassport();
 
-
-//
-var server = http.createServer(app);
 /*app.listen(port,function(){
  console.log("server is running on" + port);
  });*/
