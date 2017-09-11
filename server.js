@@ -10,7 +10,7 @@ var config = require('./config');
 var User = require("./models/userDB");
 var colors = require("colors");
 var Promise = require("es6-promise").Promise;
-var port = process.env.PORT || 2721;
+var port = process.env.PORT || 2722;
 //      DataBase     //
 
 var mongoose = require("mongoose");
@@ -109,9 +109,11 @@ app.use("/user",users);
 var server = http.createServer(app);
 // setUpPassport();
 
+
 /*app.listen(port,function(){
  console.log("server is running on" + port);
  });*/
+console.log("..");
 
 server.listen(app.get('port'), function () {
     console.log('Express server listening on port:' + app.get('port') + " ");
