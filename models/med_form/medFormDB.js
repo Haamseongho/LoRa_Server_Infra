@@ -20,7 +20,7 @@ var minuteSchema = new Schema({
 
 
 var medFormSchema = new Schema({
-    medName: {type: String},
+    medname: {type: String},
     alarmHour: [hourSchema],
     alarmMin: [minuteSchema],
     startDate: {

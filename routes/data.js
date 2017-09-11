@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var dynamicData = require("../models/dynamic");
+var dynamicData = require("../models/dynamicDB");
 var mongoose = require("mongoose");
 var db = mongoose.connection;
 var bodyParser = require("body-parser");

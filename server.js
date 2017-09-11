@@ -10,7 +10,7 @@ var config = require('./config');
 var User = require("./models/userDB");
 var colors = require("colors");
 var Promise = require("es6-promise").Promise;
-var port = process.env.PORT || 2721;
+var port = process.env.PORT || 2722;
 //      DataBase     //
 
 var mongoose = require("mongoose");
@@ -26,12 +26,19 @@ var indexRouter = require("./routes/index");
 
 
 var dataRouter = require("./routes/data");
-var mainRouter = require("./routes/main");
+
 var fcmPush = require("./routes/push");
 var test3 = require("./routes/test3");
 var map= require("./routes/map");
 var overdose = require("./routes/overdose");
+
+
+
+var guardian = require("./routes/guard/guardian");
+var users = require("./routes/user/userInfo");
+
 var guardian = require("./routes/guardian");
+
 
 //           session & passports           //
 
@@ -81,7 +88,7 @@ mongoose.connect(dbUrl, function (err) {
 
 app.use("/", indexRouter);
 app.use("/data", dataRouter);
-app.use("/", mainRouter);
+
 app.use("/push", fcmPush);
 app.use("/",test3);
 app.use(express.static('public'));
@@ -105,11 +112,10 @@ var server = http.createServer(app);
 // setUpPassport();
 
 
-//
-var server = http.createServer(app);
 /*app.listen(port,function(){
  console.log("server is running on" + port);
  });*/
+console.log("..");
 
 server.listen(app.get('port'), function () {
     console.log('Express server listening on port:' + app.get('port') + " ");
