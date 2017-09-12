@@ -10,7 +10,7 @@ var config = require('./config');
 var User = require("./models/userDB");
 var colors = require("colors");
 var Promise = require("es6-promise").Promise;
-var port = process.env.PORT || 2722;
+var port = process.env.PORT || 2721;
 //      DataBase     //
 
 var mongoose = require("mongoose");
@@ -34,7 +34,7 @@ var overdose = require("./routes/overdose");
 
 var guardian = require("./routes/guard/guardian");
 var users = require("./routes/user/userInfo");
-
+var mainRouter = require("./routes/main");
 
 //           session & passports           //
 
@@ -97,14 +97,8 @@ app.use("/guard",guardian);
 디바이스 사용자
  */
 app.use("/user",users);
-/*
- app.use('/',function (req, res, next) {
- var err = new Error('Not Found');
- err.status = 404;
- next(err);
- });
+//app.use("/",mainRouter);
 
- */
 // **************************************************************************** function **************************************************************** //
 var server = http.createServer(app);
 // setUpPassport();
