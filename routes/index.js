@@ -9,8 +9,7 @@ var kk_login = require("../passports/kakao");
 var passport = require("passport");
 /* GET home page. */
 
-fb_login(router,passport);
-kk_login(router,passport);
+
 
 
 router.get('/', function(req, res, next) {
@@ -22,6 +21,14 @@ router.get("/logout",function (req,res,next) {
     req.logout();
     req.redirect("/");
 });
+
+
+
+fb_login(router,passport);
+kk_login(router,passport);
+
+
+
 
 
 module.exports = router;
