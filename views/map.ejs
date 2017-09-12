@@ -119,11 +119,17 @@
 </div>
 <script>
     function myMap() {
-        var mapProp= {
-            center:new google.maps.LatLng(37.608742,127.020850),
-            zoom:15,
-        };
-        var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+        var myposition = {lat: 37.608742, lng: 127.020850};
+        var map = new google.maps.Map(document.getElementById('googleMap'), {
+            zoom: 15,
+            center: myposition
+        });
+        var marker = new google.maps.Marker({
+            position: myposition,
+            map: map
+        });
+
     }
 </script>
 
