@@ -10,7 +10,7 @@ var config = require('./config');
 var User = require("./models/userDB");
 var colors = require("colors");
 var Promise = require("es6-promise").Promise;
-var port = process.env.PORT || 2722;
+var port = process.env.PORT || 2721;
 //      DataBase     //
 
 var mongoose = require("mongoose");
@@ -37,7 +37,6 @@ var overdose = require("./routes/overdose");
 var guardian = require("./routes/guard/guardian");
 var users = require("./routes/user/userInfo");
 
-var guardian = require("./routes/guardian");
 
 
 //           session & passports           //

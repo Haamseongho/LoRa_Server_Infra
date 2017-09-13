@@ -24,7 +24,7 @@
         td {
             padding-top: 5px;
             font-family: arial;
-            font-size: 15px;
+            font-size: 35px;
             text-align: center;
 
         }
@@ -98,6 +98,10 @@
         input[name=search]:focus {
             width: 100%;
         }
+
+
+
+
     </style>
 
 </head>
@@ -108,322 +112,20 @@
 <div class="container-fluid">
     <header>
 
-        <img src="http://localhost:2722/image/webheader.jpg" style="width:100%;height:100%">
+        <img src="http://localhost:2721/image/webheader.jpg" style="width:100%;height:100%">
 
     </header>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div id="leftNav">
-                <ul class="nav nav-pills nav-stacked">
-                    <li class="secondp"><a href="#home">HOME
-                        </a></li>
-                    <li class="secondp"><a href="#list">명단
-                        </a></li>
-
-                    <li class="secondp"><a href="#plus">회원 추가</a></li>
-                    <li class="secondp"><a href="#delete">회원 삭제</a></li>
-                </ul>
-            </div>
-            <div style="margin-left:270px " >
-                <form action = "/" method ="get">
-                    <h2 >ADMIN PAGE</h2>
-                    <div align="right">
-                        <p> 관리자 : <%=AdminsData.email%>
-                            <input type ="submit" id = "logout" value="logout" align="right">
-                        </p>
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="leftNav">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="secondp"><a href="/main">홈</a></li>
+                            <li class="secondp"><a href="/overdose">투약 알림</a></li>
+                            <li class="secondp"><a href="/map">위치(경로)조회</a></li>
+                            <li class="secondp"><a href="">건강상태 조회</a></li>
+                        </ul>
                     </div>
-                </form>
-            </div>
-
-            <!-- <form action="" method="post">
-                 <div class="collapse navbar-collapse" id="myNavbar">
-                     <div class="nav navbar-nav navbar-right">
-                         <input type="text" name="search" placeholder="search...">
-                     </div>
-                 </div>
-             </form>-->
-
-            <div id="mainSection" class="container-fluid">
-                <div id="mainBody">
-
-                    <div class="row slideanim">
-                        <h1 id="list" class="subHeading">명단</h1><br>
-                        <div style="border: 1px solid gold; float: left; width: 30%;padding:10px;  padding-top:0px;">
-                            <h3>의사 목록</h3>
-                            <table border='0' class="table table-striped table-hover ">
-                                <thead>
-                                <tr>
-                                    <th width="66%">의사 코드</th>
-                                    <th width="33%">이름</th>
-                                </tr>
-                                </thead>
-                                <% for (var i = 0; i < DoctorsData.length; i++) {
-                                %>
-                                <tr>
-                                    <th><p><%=DoctorsData[i].Doctor_ID%></p></th>
-                                    <th><p><%=DoctorsData[i].Doctor_name%></p></th>
-                                </tr>
-                                <%
-                                } %>
-                            </table>
-                        </div>
-                        <div style="border: 1px solid gold; float: left; width: 69%; padding:10px;padding-top:0px; margin-left:10px;">
-                            <h3>환자 목록</h3>
-                            <table border='0' class="table table-striped table-hover ">
-                                <thead>
-                                <tr>
-                                    <th width="35W%">LTID</th>
-                                    <th width="8%">이름</th>
-                                    <th width="10%">성별</th>
-                                    <th width="10%">나이</th>
-                                    <th width="18%">담당의사 코드</th>
-                                    <th width="16%">담당의사 변경</th>
-                                </tr>
-                                </thead>
-                                <% for (var i = 0; i < UsersData.length; i++) {
-                                %>
-                                <tr>
-                                    <form action="/main/test3" method="get">
-                                        <th ><input type="submit"class="btn btn-default"style=" width:100%" id="btn"name="LTID" value="<%=UsersData[i].LTID%>"></th>
-                                        <th><p><%=UsersData[i].name%></p></th>
-                                        <th><p><%=UsersData[i].gender%></p></th>
-                                        <th><p><%=UsersData[i].age%></p></th>
-                                        <th><p><%=UsersData[i].Doctor_ID%></p></th>
-                                    </form>
-                                    <form action="/admin_change_doctor" method="get">
-                                        <th>
-                                            <input type="hidden" id="LTID" name="LTID" value="<%=UsersData[i].LTID%>">
-                                            <input type="hidden" id="Doctor_ID" name="Doctor_ID" value="<%=UsersData[i].Doctor_ID%>">
-
-                                            <input type="submit"class="btn btn-primary"id="btn" name="changedoctor" value="변경">
-                                        </th>
-                                    </form>
-                                </tr>
-                                <%
-                                } %>
-                            </table>
-                        </div>
-                    </div>
-
-
-
-
-                    <br><br><br>
-                    <hr>
-
-
-
-                    <div class="row slideanim">
-                        <h1 id="plus" class="subHeading">회원 추가</h1><br>
-                        <div class="container text-center" style="width:20%">
-                            <tabel border ="0" >
-
-                                <form action ="/main/addoldman"method="post"  class="form-horizontal">
-                                    <div class="form-group">
-                                        <tr>
-                                            <td>
-                                                <label class="control-label" for="LTID">Institution ID </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control" id="LTID" name="LTID"type="text" placeholder="LTID">
-                                            </td>
-                                        </tr>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <tr>
-                                            <td>
-                                                <label class="control-label" for="name">이름 </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control" id="name" name="name"type="text" placeholder="이름">
-                                            </td>
-                                        </tr>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <tr>
-                                            <td>
-                                                <label class="control-label" for="gender">성별 </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control" id="gender" name="gender"type="text" placeholder="성별">
-                                            </td>
-                                        </tr>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <tr>
-                                            <td>
-                                                <label class="control-label" for="age">나이 </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control" id="age" name="age"type="number" placeholder="나이"min="0">
-                                            </td>
-                                        </tr>
-                                    </div>
-                                    <div class="form-group">
-                                        <tr>
-                                            <td>
-                                                <label class="control-label" for="phone">전화번호 </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control" id="phoneNumber" name="phoneNumber"type="text" placeholder="전화번호">
-                                            </td>
-                                        </tr>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <tr>
-                                            <td>
-                                                <label class="control-label" for="Location">주소 </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control" id="Location" name="Location"type="text" placeholder="주소">
-                                            </td>
-                                        </tr>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <tr>
-                                            <td>
-                                                <label class="control-label" for="Doctor_ID">담당의사 코드 </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control" id="Doctor_ID" name="Doctor_ID"type="text" placeholder="의사코드">
-                                            </td>
-                                        </tr>
-                                    </div>
-                                    <div class="form-group">
-                                        <tr>
-                                            <td>
-                                                <label class="control-label" for="disease">질병 </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control" id="disease" name="disease"type="text" placeholder="질병">
-                                            </td>
-                                        </tr>
-                                    </div>
-                                    <div class="form-group">
-                                        <tr>
-                                            <td>
-                                                <label class="control-label" for="bornat">생년월일 </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control" id="bornat" name="bornat"type="text" placeholder="생년월일">
-                                            </td>
-                                        </tr>
-                                    </div>
-
-
-
-                                    <input type="submit" class="btn btn-success" id="btn" value="추가하기">
-
-                                </form>
-                            </tabel>
-                        </div>
-                    </div>
-
-
-                    <br><br><br>
-                    <hr>
-
-
-                    <div class="row slideanim">
-                        <h1 id="delete" class="subHeading">회원 삭제</h1><br>
-                        <div class="container-fluid text-center">
-                            <table border="0" width="70%"  class="table table-striped table-hover ">
-                                <thead>
-                                <tr>
-                                    <th width="18%">LTID</th>
-                                    <th width="10%">이름</th>
-                                    <th width="8%">성별</th>
-                                    <th width="8%">나이</th>
-                                    <th width="12%">지역</th>
-                                    <th width="18%">담당의사 코드</th>
-                                    <th width="16%">회원 삭제</th>
-
-                                </tr>
-                                </thead>
-                                <% for (var i = 0; i < UsersData.length; i++) {
-                                %>
-
-                                <tr>
-                                    <form action ="/main/deloldman"method="post">
-                                        <th><p><%=UsersData[i].LTID%></p></th>
-                                        <th><p><%=UsersData[i].name%></p></th>
-                                        <th><p><%=UsersData[i].gender%></p></th>
-                                        <th><p><%=UsersData[i].age%></p></th>
-                                        <th><p><%=UsersData[i].Location%></p></th>
-                                        <th><p><%=UsersData[i].Doctor_ID%></p></th>
-                                        <th><input type="submit"class="btn btn-danger"id="btn" value="삭제하기"></th>
-                                        <input type="hidden" id="LTID" name="LTID" value="<%=UsersData[i].LTID%>">
-                                        <input type="hidden" id="Location" name="Location" value="<%=UsersData[i].Location%>">
-                                    </form>
-                                </tr>
-                                <%
-                                } %>
-                            </table>
-                        </div>
-                    </div>
-
-                    <br><br><br>
-                    <hr>
-
-
-
-                    <div class="row slideanim">
-                        <h1 id="plus" class="subHeading">의사 추가</h1><br>
-                        <div class="container text-center" style="width:20%">
-                            <tabel border ="0" >
-
-                                <form action ="/main/adddoctor" method="post"  class="form-horizontal">
-                                    <div class="form-group">
-                                        <tr>
-                                            <td>
-                                                <label class="control-label" for="Doctor_ID">의사 ID </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control" id="Doctor_ID" name="Doctor_ID"type="text" placeholder="Doctor_ID">
-                                            </td>
-                                        </tr>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <tr>
-                                            <td>
-                                                <label class="control-label" for="Doctor_name">이름 </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control" id="Doctor_name" name="Doctor_name"type="text" placeholder="이름">
-                                            </td>
-                                        </tr>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <tr>
-                                            <td>
-                                                <label class="control-label" for="Doctor_pw">비밀번호 </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control" id="Doctor_pw" name="Doctor_pw"type="text" placeholder="Doctor_pw">
-                                            </td>
-                                        </tr>
-                                    </div>
-
-
-                                    <input type="submit" class="btn btn-success" id="btn2" value="의사추가하기">
-
-                                </form>
-                            </tabel>
-                        </div>
-                    </div>
-
-
-
-
-
                     <br><br><br>
                     <hr>
                 </div>
@@ -434,6 +136,28 @@
 <hr>
 <br><br><br>
 
+<div style="margin-left:300px; margin-right:100px; font-weight: bold;">
+    <table border="0">
+        <tr><td><img src="http://localhost:2721/image/overdose.png">
+            </td>
+            <td><img src="http://localhost:2721/image/location.png">
+            </td>
+            <td><img src="http://localhost:2721/image/pulse.png">
+            </td>
+        </tr>
+        <tr>
+        <td>
+        1. 투약 알림 기능
+        </td>
+        <td>
+        2. 현 위치 조회기능
+        </td>
+        <td>
+        3. 건강상태 조회기능
+        </td>
+        </tr>
+    </table>
+</div>
 <footer class="container-fluid text-center">
     <a href="#home" title="To Top">
         <span class="glyphicon glyphicon-hand-up"></span>
