@@ -27,7 +27,7 @@
         td {
             padding-top: 5px;
             font-family: arial;
-            font-size: 15px;
+            font-size: 35px;
             text-align: center;
 
         }
@@ -111,6 +111,10 @@
         input[name=search]:focus {
             width: 100%;
         }
+
+
+
+
     </style>
 
 </head>
@@ -125,6 +129,21 @@
 
     </header>
 
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div id="leftNav">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="secondp"><a href="/main">홈</a></li>
+                            <li class="secondp"><a href="/overdose">투약 알림</a></li>
+                            <li class="secondp"><a href="/map">위치(경로)조회</a></li>
+                            <li class="secondp"><a href="">건강상태 조회</a></li>
+                        </ul>
+                    </div>
+                    <br><br><br>
+                    <hr>
+                </div>
+                
     <div class="container-fluid">
         <div class="row">
             <div id="leftNav">
@@ -163,6 +182,49 @@
         </div>
     </div>
 </div>
+<hr>
+<br><br><br>
+
+<div style="margin-left:300px; margin-right:100px; font-weight: bold;">
+    <table border="0">
+        <tr><td><img src="http://localhost:2721/image/overdose.png">
+            </td>
+            <td><img src="http://localhost:2721/image/location.png">
+            </td>
+            <td><img src="http://localhost:2721/image/pulse.png">
+            </td>
+        </tr>
+        <tr>
+        <td>
+        1. 투약 알림 기능
+        </td>
+        <td>
+        2. 현 위치 조회기능
+        </td>
+        <td>
+        3. 건강상태 조회기능
+        </td>
+        </tr>
+    </table>
+</div>
+<footer class="container-fluid text-center">
+    <a href="#home" title="To Top">
+        <span class="glyphicon glyphicon-hand-up"></span>
+    </a>
+    <p>Homepage Made By <a title="Empty!! HAHA">Ubinet</a></p>
+    <p>팀원 : 김영남, 전준엽, 조재근, 함성호</p>
+</footer>
+
+<!--<script>-->
+
+<!--$(document).on("click", "#changedoctor", function () {-->
+<!--window.location.href = "/main/admin_change_doctor";-->
+<!--});-->
+
+
+<!--</script>-->
+
+
 
 <script>
     $(document).ready(function () {
