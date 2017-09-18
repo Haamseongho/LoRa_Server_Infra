@@ -15,8 +15,8 @@ var guardSchema = Schema({
  */
 
 
-guardSchema.methods.saveUserInfo = function (LTID, name, callback) {
-    this.model("Guard").collection.save({LTID: LTID, name: name}, callback);
+guardSchema.methods.insertUserInfo = function (LTID, name, callback) {
+    this.model("Guard").collection.insert({LTID: LTID, name: name}, callback);
 };
 /*
  이미 앱에서 저장된 보호자 정보를 가지고 오는 것임

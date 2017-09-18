@@ -8,14 +8,11 @@ var Guard = require("../../models/guardianDB");
 function insertInfoData(LTID,name,callback) {
     var guard = new Guard();
     console.log('guard info is inserted');
-    guard.saveUserInfo(LTID,name,function (err,guard) {
+    guard.insertUserInfo(LTID,name,function (err,guard) {
         if(err) return console.log("보호자 정보 입력이 잘못되었습니다.");
         else{
             console.log("보호자 정보가 정확하게 저장되었습니다.");
             callback(err,guard);
-            /*
-            guard --> 제대로 데이터가 입력될 경우 나온 올바른 정보
-             */
         }
     })
 }
