@@ -96,10 +96,16 @@ userSchema.methods.getLTID = function (tel, callback) {
     // 전화번호 일치시 callback 주기 --> LTID 가져올 예정.
 };
 
-
-userSchema.methods.setAlarmTime = function(alarmTime,callback){
-    console.log("alarmTime setting .. ");
-   // this.model("User").collection.insert(
+userSchema.methods.updateUserInfoByAlarmData = function (LTID, medName, startDate, endDate, alarm1, alarm2, alarm3, callback) {
+    console.log("update user_info");
+    this.model("User").collection.update({LTID: LTID}, {
+        $set: {
+            medname: medName,
+            startDate: startDate,
+            endDate: endDate,
+            $alarmTime: {alarm1: alarm1, alarm2: alarm2, alarm3: alarm3}
+        }
+    }, {upsert: true, multi: true}, callback)
 };
 
 var User = mongoose.model('User', userSchema);
