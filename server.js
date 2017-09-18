@@ -26,15 +26,21 @@ var indexRouter = require("./routes/index");
 
 
 var dataRouter = require("./routes/data");
+
 var fcmPush = require("./routes/push");
 var test3 = require("./routes/test3");
 var map= require("./routes/map");
 var overdose = require("./routes/overdose");
 
 
+
 var guardian = require("./routes/guard/guardian");
 var users = require("./routes/user/userInfo");
+
 var mainRouter = require("./routes/main");
+
+
+var guardian = require("./routes/guardian");
 
 //           session & passports           //
 
@@ -74,6 +80,7 @@ mongoose.connect(dbUrl, function (err) {
 
 app.use("/", indexRouter);
 app.use("/data", dataRouter);
+
 app.use("/push", fcmPush);
 app.use("/",test3);
 app.use(express.static('public'));
@@ -85,9 +92,17 @@ app.use("/",overdose);
 app.use("/guard",guardian);
 /*
 디바이스 사용자
+
  */
 app.use("/user",users);
-//app.use("/",mainRouter);
+app.use("/",mainRouter);
+
+ app.use('/',function (req, res, next) {
+ var err = new Error('Not Found');
+ err.status = 404;
+ next(err);
+ });
+
 
 // **************************************************************************** function **************************************************************** //
 var server = http.createServer(app);
