@@ -36,11 +36,8 @@ var overdose = require("./routes/overdose");
 
 var guardian = require("./routes/guard/guardian");
 var users = require("./routes/user/userInfo");
-
+var medForm = requrie("./routes/med_form_router");
 var mainRouter = require("./routes/main");
-
-
-var guardian = require("./routes/guardian");
 
 //           session & passports           //
 
@@ -96,12 +93,13 @@ app.use("/guard",guardian);
  */
 app.use("/user",users);
 app.use("/",mainRouter);
-
- app.use('/',function (req, res, next) {
- var err = new Error('Not Found');
- err.status = 404;
- next(err);
- });
+app.use("/medform",medForm);
+// 투약알림 
+app.use('/',function (req, res, next) {
+   var err = new Error('Not Found');
+   err.status = 404;
+   next(err);
+});
 
 
 // **************************************************************************** function **************************************************************** //

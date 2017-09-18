@@ -18,7 +18,7 @@ router.post("/spotInfo", function (req, res, next) {
     })
 });
 
-router.post("/getLTID",function (req,res,next) {
+router.get("/getLTID",function (req,res,next) {
     var tel = req.query.tel;
     console.log(tel+"입니다.");
     console.log("LTID");
