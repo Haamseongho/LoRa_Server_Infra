@@ -80,7 +80,6 @@ router.post("/insert", function (req, res, next) {
                 if (err) return console.log('투약 알람 시간 정보 저장 실패');
                 else {
                     console.log("투약 알림 저장한 거 유저에 접목이 되었음");
-                    return res.status(200).send(JSON.stringify(alarmData));
                 }
             });
             console.log("투약 알림 정보 데이터 저장은 성공 하였음");
@@ -93,6 +92,15 @@ router.post("/insert", function (req, res, next) {
      medName,startDate,endDate,alarmTime{alarm1,alarm2,alarm3} --> userDB에 업데이트 하도록
      남은 부분은 lat,lon,pulse 인데 이 부분은 Lora - upLink 작업
      */
+    /*
+     updateUserInfo(LTID,medName,startDate,endDate,alarm1,alarm2,alarm3,function(err,alarmData){
+	if(err) return console.log("투약 알림 시간 정보 저장 실패 ");
+        else{
+ 	     console.log('투약 알림 저장한 거 유저에 접목 되었음');
+             return res.status(200).json(alarmData);
+        }
+    });
+   */
 });
 
 module.exports = router;

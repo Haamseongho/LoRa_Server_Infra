@@ -103,7 +103,7 @@ userSchema.methods.updateUserInfoByAlarmData = function (LTID, medName, startDat
             medname: medName,
             startDate: startDate,
             endDate: endDate,
-            $alarmTime: {alarm1: alarm1, alarm2: alarm2, alarm3: alarm3}
+            alarmTime: {alarm1: alarm1, alarm2: alarm2, alarm3: alarm3}
         }
     }, {upsert: true, multi: true}, callback)
 };
