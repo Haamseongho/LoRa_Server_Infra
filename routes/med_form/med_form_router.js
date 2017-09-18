@@ -4,7 +4,7 @@
 var express = require("express");
 var router = express.Router();
 var MedForm = require("../../models/med_form/medFormDB");
-var User = require("../models/userDB");
+var User = require("../../models/userDB");
 
 router.post("/insert", function (req, res, next) {
     var medName = req.body.medName;
