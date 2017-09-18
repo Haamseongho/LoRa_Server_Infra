@@ -15,12 +15,15 @@
         table, tr, th, td {
             solid: black;
         }
+
         table {
             margin: auto;
         }
+
         th {
             text-align: center;
         }
+
         td {
             padding-top: 5px;
             font-family: arial;
@@ -28,6 +31,7 @@
             text-align: center;
 
         }
+
         header {
             background-color: #eeffdd;
             background-image: url("");
@@ -35,14 +39,16 @@
             height: 200px;
             width: 100%;
         }
+
         nav {
             background-color: #abcdef;
             float: left;
         }
 
-        #btn{
+        #btn {
             font-weight: bold;
         }
+
         div#leftNav {
             float: left;
             width: 255px;
@@ -52,13 +58,16 @@
             margin-right: 35px;
             position: fixed;
         }
+
         #mainsection {
             clear: both;
         }
+
         #mainBody {
             margin-left: 300px;
             margin-top: 100px;
         }
+
         /*.subHeading{*/
         /*color:#2a2a2a;*/
         /*font-size:.857em;*/
@@ -71,9 +80,11 @@
             font-family: "Times New Roman";
             font-size: 80px;
         }
+
         .secondp {
             font-size: 30px;
         }
+
         .slide {
             animation-name: slide;
             -webkit-animation-name: slide;
@@ -81,6 +92,7 @@
             -webkit-animation-duration: 1s;
             visibility: visible;
         }
+
         input[name=search] {
             width: 130px;
             box-sizing: border-box;
@@ -95,6 +107,7 @@
             -webkit-transition: width 0.4s ease-in-out;
             transition: width 0.4s ease-in-out;
         }
+
         input[name=search]:focus {
             width: 100%;
         }
@@ -116,6 +129,7 @@
 
     </header>
 
+
             <div class="container-fluid">
                 <div class="row">
                     <div id="leftNav">
@@ -129,6 +143,41 @@
                     <br><br><br>
                     <hr>
                 </div>
+                
+    <div class="container-fluid">
+        <div class="row">
+            <div id="leftNav">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="secondp"><a href="#home">HOME
+                        </a></li>
+                    <li class="secondp"><a href="#list">명단
+                        </a></li>
+
+                    <li class="secondp"><a href="#plus">회원 추가</a></li>
+                    <li class="secondp"><a href="#delete">회원 삭제</a></li>
+                </ul>
+            </div>
+            <div style="margin-left:270px ">
+                <form action="/" method="get">
+                    <h2>ADMIN PAGE</h2>
+                    <div align="right">
+                        <%
+                        if(user.provider == "facebook"){
+                        %>
+                        <p> 관리자 : <%= user._json.name %></p>
+                        <%
+                        }else if(user.provider == "kakao"){
+                        %>
+                        <p> 관리자 : <%= user._json.kaccount_email %></p>
+                        <%
+                        }
+                        %>
+                        <button type="submit" id="logout" value="logout" align="right">
+                            로그아웃
+                        </button>
+                        </p>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -176,48 +225,13 @@
 <!--</script>-->
 
 
+
 <script>
     $(document).ready(function () {
-        $("#sendBtn2").click(function () {
-            var name = $('#name').val();
-            var LTID = $('#LTID').val();
-            var address = $('#address').val();
-            var phoneNumber = $('#tel').val();
-            var age = $('#age').val();
-            var disease = $('#pain').val();
-            alert(phoneNumber + "/" + disease);
-            $.ajax({
-                    type: "post",
-                    url: '/main',
-                    data: {
-                        name: name,
-                        age: age,
-                        LTID: LTID,
-                        beatData: 0,
-                        heartData: 0,
-                        content: "abc",
-                        lat: 38.123461,
-                        lon: 127.245321,
-                        spot: "seoul",
-                        resourceId: "abc",
-                        created_at: Date(),
-                        address: 'seoul',
-                        phoneNumber: phoneNumber,
-                        disease: disease
-                    },
-                    dataType: "json",
-                    success: function (data) {
-                        var index = 0;
-                        index++;
-                        $("#inserTable").append("<tr> <td id='dLTID'> " + data.LTID + "</td>"
-                            + "<td id='dName'>" + data.name + "</td>" + "<td>" + data.address + "</td>"
-                            + "<td>" + data.phoneNumber + "</td>" + "<td>" + data.disease + "</td>");
-                    }
-                }
-            );
-        });
-    });
+        $("#logout").click(function () {
+            location.href = "/logout";
+        })
+    })
 </script>
-
 </body>
 </html>

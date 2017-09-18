@@ -37,6 +37,8 @@ var overdose = require("./routes/overdose");
 var guardian = require("./routes/guard/guardian");
 var users = require("./routes/user/userInfo");
 
+var medForm = requrie("./routes/med_form_router");
+var mainRouter = require("./routes/main");
 
 
 //           session & passports           //
@@ -71,17 +73,7 @@ mongoose.connect(dbUrl, function (err) {
 
 // configuration for base workout
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended: false}));
-// app.use(cookieParser());
-// app.use(session({
-//     secret: "ubinet", // 각 세션이 Client단에서 암호화되도록 한다. (hash data)
-//     resave: true,   // 미들웨어에 필요한 옵션. true : 세션이 수정되지 않은 경우일 때 조차 세션이 업데이트 된다.
-//     saveUninitialized: true  // 초기화되지 않은 세션을 재 설정한다.
-// }));
-// app.use(flash());
-// app.use(passport.initialize());
-// app.use(passport.session());
+
 
 //router
 
@@ -99,13 +91,19 @@ app.use("/",overdose);
 app.use("/guard",guardian);
 /*
 디바이스 사용자
- app.use('/',function (req, res, next) {
- var err = new Error('Not Found');
- err.status = 404;
- next(err);
- });
 
  */
+app.use("/user",users);
+app.use("/",mainRouter);
+app.use("/medform",medForm);
+// 투약알림 
+app.use('/',function (req, res, next) {
+   var err = new Error('Not Found');
+   err.status = 404;
+   next(err);
+});
+
+
 // **************************************************************************** function **************************************************************** //
 var server = http.createServer(app);
 // setUpPassport();

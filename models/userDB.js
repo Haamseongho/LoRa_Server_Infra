@@ -60,7 +60,6 @@ var userSchema = new Schema({
 
 });
 
-var User = mongoose.model('User', userSchema);
 
 userSchema.methods.getSpotData = function (lat, lon, callback) {
     this.model("User").collection.insert({lat: lat, lon: lon}, callback);
@@ -92,8 +91,18 @@ userSchema.methods.getMedData = function (medname, startDate, endDate, alarmTime
     }, callback);
 };
 userSchema.methods.getLTID = function (tel, callback) {
+    console.log('find the telecom number');
     this.model("User").collection.findOne({tel: tel}, callback);
     // 전화번호 일치시 callback 주기 --> LTID 가져올 예정.
 };
+
+
+userSchema.methods.setAlarmTime = function(alarmTime,callback){
+    console.log("alarmTime setting .. ");
+   // this.model("User").collection.insert(
+};
+
+var User = mongoose.model('User', userSchema);
+
 
 module.exports = User;
