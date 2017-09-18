@@ -9,8 +9,9 @@ var User = require("../../models/userDB");
 /*
  투약 알림 설정
  */
-function insertMedInfoData(medName, alarmHour, alarmHour2, alarmHour3, alarmMin, alarmMin2, alarmMin3, startDate, endDate, callback) {
+function insertMedInfoData(LTID,medName, alarmHour, alarmHour2, alarmHour3, alarmMin, alarmMin2, alarmMin3, startDate, endDate, callback) {
     var medform = new MedForm({
+        LTID : LTID,
         medname: medName,
         alarmHour: {
             hour1: alarmHour,
@@ -61,34 +62,37 @@ router.post("/insert", function (req, res, next) {
     var alarmMin2 = req.body.alarmMin[1];
     var alarmMin3 = req.body.alarmMin[2];
 
+
+    var alarm1 = alarmHour + ":" + alarmMin;
+    var alarm2 = alarmHour2 + ":" + alarmMin2;
+    var alarm3 = alarmHour3 + ":" + alarmMin3;
+
     var startDate = req.body.startDate;
     var endDate = req.body.endDate;
     console.log(medName);
     console.log("약이름:" + medName + "/시" + alarmHour + "/" + alarmHour2 + "/" + alarmMin + "/" + alarmMin2 +
         "/" + startDate + "/" + endDate);
 
-    insertMedInfoData(medName, alarmHour, alarmHour2, alarmHour3, alarmMin, alarmMin2, alarmMin3, startDate, endDate, function (err, medForm) {
+    insertMedInfoData(LTID,medName, alarmHour, alarmHour2, alarmHour3, alarmMin, alarmMin2, alarmMin3, startDate, endDate, function (err, medForm) {
         if (err) return console.log("투약 알림 정보 데이터 저장 실패");
         else {
+            updateUserInfo(LTID, medName, startDate, endDate, alarm1, alarm2, alarm3, function (err, alarmData) {
+                if (err) return console.log('투약 알람 시간 정보 저장 실패');
+                else {
+                    console.log("투약 알림 저장한 거 유저에 접목이 되었음");
+                    return res.status(200).send(JSON.stringify(alarmData));
+                }
+            });
+            console.log("투약 알림 정보 데이터 저장은 성공 하였음");
             return res.status(200).send(JSON.stringify(medForm));
         }
     });
 
-    var alarm1 = alarmHour + ":" + alarmMin;
-    var alarm2 = alarmHour2 + ":" + alarmMin2;
-    var alarm3 = alarmHour3 + ":" + alarmMin3;
 
     /*
      medName,startDate,endDate,alarmTime{alarm1,alarm2,alarm3} --> userDB에 업데이트 하도록
      남은 부분은 lat,lon,pulse 인데 이 부분은 Lora - upLink 작업
      */
-
-    updateUserInfo(LTID, medName, startDate, endDate, alarm1, alarm2, alarm3, function (err, alarmData) {
-        if (err) return console.log('투약 알람 시간 정보 저장 실패');
-        else {
-            return res.status(200).send(JSON.stringify(alarmData));
-        }
-    });
 });
 
 module.exports = router;

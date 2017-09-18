@@ -97,7 +97,7 @@ userSchema.methods.getLTID = function (tel, callback) {
 };
 
 userSchema.methods.updateUserInfoByAlarmData = function (LTID, medName, startDate, endDate, alarm1, alarm2, alarm3, callback) {
-    console.log("update user_info");
+    console.log("유저 정보 업데이트 진행");
     this.model("User").collection.update({LTID: LTID}, {
         $set: {
             medname: medName,
