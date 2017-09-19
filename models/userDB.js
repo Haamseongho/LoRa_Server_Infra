@@ -108,6 +108,24 @@ userSchema.methods.updateUserInfoByAlarmData = function (LTID, medName, startDat
     }, {upsert: true, multi: true}, callback)
 };
 
+
+userSchema.methods.updateDynamicData = function (LTID, lat, lon, pulse, callback) {
+    this.model("User").collection.update({LTID: LTID},
+        {
+            $set: {
+                lat: lat,
+                lon: lon,
+                pulse: pulse
+            }
+        }, {upsert: true, multi: true}, callback);
+};
+
+userSchema.methods.getLatLng = function (LTID,callback) {
+    this.model("User").collection.findOne({LTID:LTID},callback);
+}
+/*
+ dynamicDB - LTID / userDB - LTID  일치 시에는 userDB에 lat,lon 그리고 pulse 정보 수정
+ */
 var User = mongoose.model('User', userSchema);
 
 

@@ -8,7 +8,7 @@ require('body-parser-xml')(bodyParser);
 var db = mongoose.connection;
 
 var app = express();
-var user = undefined;
+
 
 app.set(bodyParser.json());
 app.set(bodyParser.urlencoded({extended: true}));
@@ -32,14 +32,5 @@ router.post("/", function (req, res, next) {
         return res.send('send well');
     });
 });
-
-
-router.get("/", function (req, res, next) {
-    user.findData(req.body.name, function (err, user) {
-        if (err) return res.status(404).send(new Error("user Not Found"));
-        return res.status(200).json(user);
-    })
-});
-
 
 module.exports = router;
