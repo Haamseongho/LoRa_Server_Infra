@@ -5,7 +5,7 @@ var express = require("express");
 var router = express.Router();
 var UserInfo = require("../../models/userDB");
 
-router.post("/spotInfo", function (req, res, next) {
+router.post("/spotinfo", function (req, res, next) {
     var lat = req.body.lat;
     var lon = req.body.lon;
     console.log("spotInfo");
