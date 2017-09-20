@@ -31,4 +31,16 @@ router.post("/insertinfo",function (req,res,next) {
         }
     })
 });
+
+router.post("/login",function(req,res,next){
+   var name = req.body.name;
+   var guard = new Guard();
+   guard.insertUserName(name,function(err,guard){
+	if(err) return console.log('보호자 이름 저장 실패');
+        else{
+	     console.log('보호자 이름 저장 성공');
+	     return res.status(200).json(guard);
+      }
+   });   
+});
 module.exports = router;
