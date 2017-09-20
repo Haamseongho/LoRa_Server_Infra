@@ -4,17 +4,21 @@
 var express = require("express");
 var router = express.Router();
 module.exports = function (req,provider) {
-    var name;
+    const name;
     switch(provider){
-        case "facebook":{
-            name = req.user._json.name;
-        }
+        case "facebook": { 
+            var facebook = { name : req.user._json.name }
+                      
+       }
         break;
 
-        case  "kakao":{
-            name = req.user._json.kaccount_email;
-        }
+        case  "kakao":{ 
+            var kakao =  { name : req.user._json.kaccount_email }
+       }
         break;
     }
-    return name;
+    return {
+             facebook : facebook.name,
+             kakao : kakao
+   };
 };

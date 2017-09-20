@@ -9,9 +9,12 @@ var Dynamic = require("../models/dynamicDB");
 var Guardian = require("../models/guardianDB");
 var mongoose = require("mongoose");
 var user = undefined;
+var Provider = require("../models/provider/provider_check");
 
 router.get("/map", function (req, res, next) {
 
+    var provider = new Provider(req,req.user.provider);
+    console.log(provider.facebook+"입니다...ㅋㅋ");
     if(req.user.provider == "facebook"){
         console.log(req.user.provider);
         var Name=req.user._json.name
