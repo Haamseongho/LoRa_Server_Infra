@@ -109,6 +109,7 @@
 
     <br><br><br>
 
+
     <footer class="container-fluid text-center">
         <a href="#home" title="To Top">
             <span class="glyphicon glyphicon-hand-up"></span>
@@ -118,9 +119,13 @@
     </footer>
 </div>
 <script>
-    function myMap() {
+    var dlat =[];
+    var dlon =[];
+    dlat.push(<%=dyanmicData.lat%>);
+    dlon.push(<%=dyanmicData.lon%>);
 
-        var myposition = {lat: 37.608742, lng: 127.020850};
+    function myMap() {
+        var myposition = {lat:dlat[0], lng:dlon[0]};
         var map = new google.maps.Map(document.getElementById('googleMap'), {
             zoom: 15,
             center: myposition
@@ -129,7 +134,6 @@
             position: myposition,
             map: map
         });
-
     }
 </script>
 
