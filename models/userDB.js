@@ -96,12 +96,36 @@ userSchema.methods.getLTID = function (tel, callback) {
     // 전화번호 일치시 callback 주기 --> LTID 가져올 예정.
 };
 
-
-userSchema.methods.setAlarmTime = function(alarmTime,callback){
-    console.log("alarmTime setting .. ");
-   // this.model("User").collection.insert(
+userSchema.methods.updateUserInfoByAlarmData = function (LTID, medName, startDate, endDate, alarm1, alarm2, alarm3, callback) {
+    console.log("유저 정보 업데이트 진행");
+    this.model("User").collection.update({LTID: LTID}, {
+        $set: {
+            medname: medName,
+            startDate: startDate,
+            endDate: endDate,
+            alarmTime: {alarm1: alarm1, alarm2: alarm2, alarm3: alarm3}
+        }
+    }, {upsert: true, multi: true}, callback)
 };
 
+
+userSchema.methods.updateDynamicData = function (LTID, lat, lon, pulse, callback) {
+    this.model("User").collection.update({LTID: LTID},
+        {
+            $set: {
+                lat: lat,
+                lon: lon,
+                pulse: pulse
+            }
+        }, {upsert: true, multi: true}, callback);
+};
+
+userSchema.methods.getLatLng = function (LTID,callback) {
+    this.model("User").collection.findOne({LTID:LTID},callback);
+}
+/*
+ dynamicDB - LTID / userDB - LTID  일치 시에는 userDB에 lat,lon 그리고 pulse 정보 수정
+ */
 var User = mongoose.model('User', userSchema);
 
 

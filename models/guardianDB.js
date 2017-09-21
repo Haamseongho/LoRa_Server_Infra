@@ -27,6 +27,10 @@ guardSchema.methods.isUserExisted = function (name, callback) {
     this.model("Guard").collection.findOne({name: name}, callback);
 };
 
+guardSchema.methods.insertUserName = function(name,callback){
+    this.model("Guard").collection.insert({name:name},callback);
+};
+
 
 var Guard = mongoose.model("Guard", guardSchema);
 

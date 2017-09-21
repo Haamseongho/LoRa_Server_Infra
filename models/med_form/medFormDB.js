@@ -12,14 +12,15 @@ var hourSchema = new Schema({
 // 알림 시간 설정 시간 스키마
 
 var minuteSchema = new Schema({
-    minute1 : {type:Number},
-    minute2 : {type:Number},
-    minute3 : {type:Number}
+    minute1: {type: Number},
+    minute2: {type: Number},
+    minute3: {type: Number}
 });
 // 알림 시간 설정 분 스키마
 
 
 var medFormSchema = new Schema({
+    LTID: {type: String},
     medname: {type: String},
     alarmHour: [hourSchema],
     alarmMin: [minuteSchema],
@@ -33,4 +34,4 @@ var medFormSchema = new Schema({
 // 투약폼 스키마
 
 
-module.exports = mongoose.model("MedForm",medFormSchema);
+module.exports = mongoose.model("MedForm", medFormSchema);
