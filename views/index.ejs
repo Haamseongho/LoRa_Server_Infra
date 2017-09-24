@@ -15,19 +15,9 @@
     <style>
         header {
             background-color: #eeffdd;
-            background-image: url("");
             float: left;
             height: 200px;
             width: 100%;
-        }
-
-        nav {
-            background-color: #abcdef;
-            float: left;
-        }
-
-        #sendBtn2 {
-            width: 250px;
         }
 
         div#leftNav {
@@ -38,10 +28,6 @@
             margin-left: 15px;
             margin-right: 35px;
             position: fixed;
-        }
-
-        #mainsection {
-            clear: both;
         }
 
         #mainBody1 {
@@ -69,6 +55,7 @@
         }
 
         .secondp {
+
             font-size: 30px;
         }
 
@@ -81,92 +68,41 @@
 <div class="container-fluid">
     <header>
 
-        <img src="http://localhost:2722/image/webheader.jpg" style="width:100%;height:100%">
+        <img src="http://localhost:2721/image/webheader.jpg" style="width:100%;height:100%">
 
     </header>
 
 
-    <div class="container-fluid">
-        <div class="row">
-            <div id="leftNav">
-                <ul class="nav nav-pills nav-stacked">
-                    <li class="secondp"><a href="">명단
-                        </a></li>
-                    <li class="secondp"><a href="">방문
-                            계획</a></li>
-                    <li class="secondp"><a href="">회원
-                            추가</a></li>
-                    <li class="secondp"><a href="">회원
-                            삭제</a></li>
-                </ul>
-            </div>
 
 
             <!-- 관리자 로그인 -->
+            <br>
+            <div style="margin-left:500px; margin-top:200px; margin-bottom: 500px;">
+            <h3>로그인 페이지</h3>
 
-            <form action="/main" method="get">
-                <div id="mainSection" class="container-fluid">
-                    <div id="mainBody1">
-                        <h3 class="subHeading">Admin Login</h3><br>
-                        <div class="subsection">
-                            <label for="Institutionid">Email : </label>
-                            <input type="text" id="institution" name="institution" placeholder='Email'>
-                            <br><br>
-                            <label for="password">Password : </label>
-                            <input type="text" id="password1" name="password" placeholder='password'><br>
-                            <br><br>
-                            <input type="submit" value="Admin LOGIN" class="btn btn-info btn-block">
-                        </div>
-                    </div>
-                </div>
+
+            <form action="/auth/facebook" method="get">
+                <input type="submit" style="height: 60px; font-size:25px; font-weight: bold" class="btn btn-primary" value="페이스북 로그인 하러가기" name="fb_login">
             </form>
+                <br>
+            <form action="/auth/kakao" method="get">
+                <input type="submit" style="height: 60px;font-size:25px; font-weight: bold" class="btn btn-warning" value="카카오톡 로그인 하러가기" name="kk_login">
+            </form></div>
 
-            <!-- 의사 로그인 -->
 
-            <form action="/doctor" method="get">
+            <hr>
+            <hr/>
+            <br><br><br>
 
-                <div id="mainSection" class="container-fluid">
-                    <div id="mainBody2">
-                        <h3 class="subHeading">Doctor Login</h3><br>
-                        <div class="subsection">
-                            <label for="DoctorID">Doctor ID : </label>
-                            <input type="text" id="doctorid" name="doctorid" placeholder='Doctor ID'>
-                            <br><br>
-                            <label for="password">Password : </label>
-                            <input type="text" id="password2" name="password" placeholder='password'><br>
-                            <br><br>
-                            <input type="submit" value="Doctor LOGIN"
-                                   class="btn btn-info btn-block">
-                            </input>
-                        </div>
-                    </div>
-                </div>
-
-            </form>
+            <footer class="container-fluid text-center">
+                <a href="#home" title="To Top">
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                </a>
+                <p>Homepage Made By <a title="Empty!! HAHA">Ubinet</a></p>
+                <p>팀원 : 김영남, 전준엽, 조재근, 함성호</p>
+            </footer>
         </div>
     </div>
-
-
-    <hr>
-    <hr />
-    <button type="button" id="btnRegister" >회원가입</button>
-    <br><br><br>
-
-    <footer class="container-fluid text-center">
-        <a href="#home" title="To Top">
-            <span class="glyphicon glyphicon-hand-up"></span>
-        </a>
-        <p>Homepage Made By <a title="Empty!! HAHA">Ubinet</a></p>
-        <p>팀원 : 김영남, 전준엽, 조재근, 함성호</p>
-    </footer>
 </div>
 </body>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#btnRegister").click(function () {
-            location.href = "/register"
-        })
-    })
-</script>
-
 </html>
