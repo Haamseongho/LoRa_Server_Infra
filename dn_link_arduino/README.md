@@ -39,8 +39,8 @@ LoRa모듈로 들어온 명령 데이터를 아두이노에 역으로 전송하�
 
  		int k = 8;
   		while(k<=11){
-    		pinMode(k,OUTPUT);
-    		k++;
+    			pinMode(k,OUTPUT);
+    			k++;
   		}
   		
   		Serial.begin(38400);
@@ -57,15 +57,14 @@ LoRa모듈로 들어온 명령 데이터를 아두이노에 역으로 전송하�
 	void pinCheck(int pinNum){
   		digitalWrite(pinNum,HIGH);
   		if(pinNum <= 11)
-    		delay(1000);
+    			delay(1000);
   		else
-    		delay(1000);
+    			delay(1000);
   		digitalWrite(pinNum,LOW);
   
 	}
 
-	void loop()
-	{
+	void loop(){
 
 	int k;
   		
@@ -79,7 +78,7 @@ LoRa모듈로 들어온 명령 데이터를 아두이노에 역으로 전송하�
 
         		for(k=8;k<=11;k++){
     				pinCheck(k);
-  				}
+  			}
 
         		serial="";
       		} 
