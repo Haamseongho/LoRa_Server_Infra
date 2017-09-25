@@ -10,11 +10,10 @@
 <br />
 
 > UpLink
-> 
-- 연결 되어 있는 여러 디바이스나 추적(Tracking) 및 모니터링 
+> > - 연결 되어 있는 여러 디바이스나 추적(Tracking) 및 모니터링 
 등여러 센서에 의해 작업한 내용을 ThingPlug서버로 보내는 것
-- AT+SEND 명령어로 전송한다 (LoRa모듈을 거쳐 ThingPlug서버로)
-- 전송 시에 앞에 두 자리는 Hexa String으로 보내기 때문에 빼줘야 한다.
+> > - AT+SEND 명령어로 전송한다 (LoRa모듈을 거쳐 ThingPlug서버로)
+> > - 전송 시에 앞에 두 자리는 Hexa String으로 보내기 때문에 빼줘야 한다.
 
 ### 아두이노 작업 (Up-Link)
 
