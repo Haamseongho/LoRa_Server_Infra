@@ -3,5 +3,5 @@
 ---
 
 
-[![Video Label](http://img.youtube.com/vi/2HHGHs1Up5E/0.jpg)]
+[![Video Label](http://img.youtube.com/vi/2HHGHs1Up5E/0.jpg)](https://youtu.be/watch?v=2HHGHs1Up5E) 
 
