@@ -15,7 +15,7 @@
 
 반대로 Down-Link는 Client부분에서 (웹/앱) Application server로 컨트롤 명령 데이터를 보냅니다.
 
-
+<br />
 
 보내진 명령 데이터는 ThingPlug 서버를 거쳐 LoRa모듈로 들어옵니다.
 
@@ -98,7 +98,8 @@ LoRa모듈로 들어온 명령 데이터를 아두이노에 역으로 전송하�
 
 ---
 
-<img src="../images/app_pin_led" />
+
+<img src="../images/app_pin_led.JPG" />
 
 
 
