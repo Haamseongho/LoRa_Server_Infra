@@ -27,9 +27,9 @@
 	...
 
 	gps.f_get_position(&flat, &flon, &age);
-    print_float(flat, TinyGPS::GPS_INVALID_F_ANGLE, 10, 6);
-    print_float(flon, TinyGPS::GPS_INVALID_F_ANGLE, 11, 6);
-    Serial.println(rateValue);
+    	print_float(flat, TinyGPS::GPS_INVALID_F_ANGLE, 10, 6);
+    	print_float(flon, TinyGPS::GPS_INVALID_F_ANGLE, 11, 6);
+    	Serial.println(rateValue);
 
 	
 	
@@ -50,13 +50,13 @@
 
 ```
 
-	  data += String(slat);
-      data += String(slon);
-      data += fstring;
-      data += enter;
+	data += String(slat);
+      	data += String(slon);
+      	data += fstring;
+     	data += enter;
 
-      Serial.println(data);
-      Serial3.println(data);
+      	Serial.println(data);
+      	Serial3.println(data);
 
 
 ```
