@@ -4,11 +4,11 @@
 var express = require("express");
 var router = express.Router();
 module.exports = function (req,provider) {
-    const name;
+    var name;
     switch(provider){
         case "facebook": { 
             var facebook = { name : req.user._json.name }
-                      
+
        }
         break;
 
@@ -19,6 +19,6 @@ module.exports = function (req,provider) {
     }
     return {
              facebook : facebook.name,
-             kakao : kakao
+             kakao : kakao.name
    };
 };

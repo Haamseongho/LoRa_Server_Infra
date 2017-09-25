@@ -21,6 +21,32 @@
             border: 1px solid black;
             width: 700px;
         }
+        .secondp {
+
+            font-size: 30px;
+        }
+        div#leftNav {
+            float: left;
+            width: 255px;
+            margin-top: 250px;
+            /*display:inline-block;*/
+            margin-left: 15px;
+            margin-right: 35px;
+            position: fixed;
+        }
+
+        #mainBody1 {
+            margin-left: 300px;
+            margin-top: 50px;
+
+        }
+
+         header {
+             background-color: #eeffdd;
+             float: left;
+             height: 200px;
+             width: 100%;
+         }
 
         table {
             margin: auto;
@@ -39,37 +65,62 @@
 </head>
 
 <body>
-<!--<svg width="960" height="500"></svg>-->
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
+
+<div class="container-fluid">
+    <header>
+
+        <img src="http://localhost:2721/image/webheader.jpg" style="width:100%;height:100%">
+
+    </header>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="leftNav">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="secondp"><a href="/main">홈</a></li>
+                    <li class="secondp"><a href="/overdose">투약 알림</a></li>
+                    <li class="secondp"><a href="/map">위치조회</a></li>
+                    <li class="secondp"><a href="/main/test3">건강상태 조회</a></li>
+                </ul>
+            </div>
+            <div align ="center"id="mainSection" class="container-fluid">
+                <div id="mainBody1">
+                    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+                    <div style="margin-top:230px;"class="container-fluid text-center">
+                        <table>
+                            <tr>
+                                <th>LTID</th>
+                                <th>맥박</th>
+                                <th>위도</th>
+                                <th>경도</th>
+                                <th>시간</th>
+                            </tr>
+
+                            <% for (var i = DynamicData.length-10; i < DynamicData.length; i++) {
+                            %>
+                            <tr>
+                                <td><%= DynamicData[i].LTID %></td>
+                                <td><%= DynamicData[i].pulse %></td>
+                                <td><%= DynamicData[i].lat %></td>
+                                <td><%= DynamicData[i].lon %></td>
+                                <td><%= DynamicData[i].time.toLocaleString() %></td>
+                            </tr>
+                            <%
+                            } %>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 <br><br><br><br><br>
 <hr>
 
-<div class="container-fluid text-center">
-    <table>
-        <tr>
-            <th>LTID</th>
-            <th>맥박</th>
-            <th>위도</th>
-            <th>경도</th>
-            <th>시간</th>
-        </tr>
-
-        <% for (var i = DynamicData.length-10; i < DynamicData.length; i++) {
-        %>
-        <tr>
-            <td><%= DynamicData[i].LTID %></td>
-            <td><%= DynamicData[i].pulse %></td>
-            <td><%= DynamicData[i].lat %></td>
-            <td><%= DynamicData[i].lon %></td>
-            <td><%= DynamicData[i].time.toLocaleString() %></td>
-        </tr>
-        <%
-        } %>
-
-    </table>
-</div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <script>
     var a=[ ];
@@ -91,15 +142,15 @@
     var chart = Highcharts.chart('container', {
 
         title: {
-            text: '<%= UsersData.name %> Data'
+            text: '최근 맥박 변화'
         },
         xAxis: {
             categories: b,
             id: 'x-axis'
         },
         yAxis: {
-            min : 50,
-            max: 100,
+            min : 30,
+            max: 120,
             title: {
                 text: 'pulse'
             }
@@ -121,7 +172,13 @@
 
     });
 </script>
-
-
+    <footer class="container-fluid text-center">
+        <a href="#home" title="To Top">
+            <span class="glyphicon glyphicon-hand-up"></span>
+        </a>
+        <p>Homepage Made By <a title="Empty!! HAHA">Ubinet</a></p>
+        <p>팀원 : 김영남, 전준엽, 조재근, 함성호</p>
+    </footer>
+</div>
 </body>
 </html>
