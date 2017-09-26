@@ -87,17 +87,19 @@ NM에 원하는 값을 넣어 주시고 만들어줘야 하는데 NM은 한 번�
 ### [ need more tutorial -- arduino & server code tutorial ]
 <hr />
 
-##<a link href="./fb_login">페이스북 계정으로 로그인 하기</a>
+##<a link href="./fb_login">페이스북 계정으로 로그인 하기(Android)</a>
 
-##<a link href="./kk_login">카카오톡 계정으로 로그인 하기</a>
+##<a link href="./kk_login">카카오톡 계정으로 로그인 하기(Android)</a>
+
+##<a link href="./web_api">Web Front(GoogleMap.api)</a>
 
 ##<a link href="./arduino">아두이노 오픈소스(TinyGPS) </a>
 
-##<a link href="./up_link_arduino">LoRa 업링크 모듈 </a>
+##<a link href="./up_link_arduino">LoRa 업링크 모듈(LoRa - UpLink) </a>
 
-##<a link href="./dn_link_arduino">LoRa 다운링크 모듈</a> 
+##<a link href="./dn_link_arduino">LoRa 다운링크 모듈(LoRa - DownLink)</a> 
 
-##<a link href="./show_video"> 프로젝트 영상 및 모듈 시스템 구조 소개 </a> 
+##<a link href="./show_video"> 프로젝트 영상 및 모듈 시스템 구조 소개 (Project & Video & System Flow / Architecture) </a> 
 
 <br />
 <hr />
