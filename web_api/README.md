@@ -1,4 +1,4 @@
-# 웹 
+#   
 ---
 
 ## Google Map Api
@@ -55,5 +55,4 @@ cf:) dynamicData는 LoRa모듈의 Up-Link를 통해 받아 온 위도와 경도 
 
 <hr />
 
-## License
 
