@@ -84,7 +84,7 @@ NM에 원하는 값을 넣어 주시고 만들어줘야 하는데 NM은 한 번�
    
 <img src="./images/Lora_arc3.JPG" />
 
-### [ need more tutorial -- arduino & server code tutorial ]
+### [ need more tutorial -- arduino & server & Android code tutorial ]
 <hr />
 
 ##<a link href="./fb_login">페이스북 계정으로 로그인 하기(Android)</a>
