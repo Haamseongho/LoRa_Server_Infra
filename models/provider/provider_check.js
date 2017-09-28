@@ -8,7 +8,7 @@ module.exports = function (req,provider) {
     switch(provider){
         case "facebook": { 
             var facebook = { name : req.user._json.name }
-                      
+
        }
         break;
 
@@ -19,6 +19,6 @@ module.exports = function (req,provider) {
     }
     return {
              facebook : facebook.name,
-             kakao : kakao
+             kakao : kakao.name
    };
 };
