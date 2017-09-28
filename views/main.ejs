@@ -198,6 +198,16 @@
         </tr>
     </table>
 </div>
+</div>
+<div>
+    <input type="button" name="btn1" value="버튼1" id="btn1">
+    <input type="button" name="btn2" value="버튼2" id="btn1">
+    <input type="button" name="btn3" value="버튼3" id="btn1">
+    <input type="button" name="btn4" value="버튼4" id="btn1">
+    <input type="button" name="btn5" value="버튼5" id="btn1">
+</div>
+
+
 <footer class="container-fluid text-center">
     <a href="#home" title="To Top">
         <span class="glyphicon glyphicon-hand-up"></span>
@@ -221,6 +231,12 @@
     $(document).ready(function () {
         $("#logout").click(function () {
             location.href = "/logout";
+        })
+        var inputData = $('#btn1').val();
+
+
+        $("input[name*='btn']").click(function () {
+            console.log(inputData);
         })
     })
 </script>

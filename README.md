@@ -84,13 +84,25 @@ NM에 원하는 값을 넣어 주시고 만들어줘야 하는데 NM은 한 번�
    
 <img src="./images/Lora_arc3.JPG" />
 
-[ need more tutorial -- arduino & server code tutorail ] 
+### [ need more tutorial -- arduino & server & Android code tutorial ]
+<hr />
 
+##<a link href="./fb_login">페이스북 계정으로 로그인 하기(Android)</a>
 
-># Sns 활용 로그인 api : [SNS] (https://haamseongho.github.io/ubinet/explain_oss/oss_map.html)
-># Arduino 활용 UpLink api : [a link] ARDUINO (https://haamseongho.github.io/Android_lecture_by_Haam/)
-># 지도API 활용 : [a link](https://github.com/Haamseongho/ubinet/blob/master/explain_oss/oss_map.html)
-># QR코드 API 활용 : [a link](https://github.com/Haamseongho/ubinet/blob/master/explain_oss/oss_QRcode.html)
-># LoRa & ThingPlug API 활용 : [a link](https://github.com/Haamseongho/ubinet/blob/master/explain_oss/oss_LoRa_ThingPlug.html)
+##<a link href="./kk_login">카카오톡 계정으로 로그인 하기(Android)</a>
+
+##<a link href="./web_api">Web Front(GoogleMap.api)</a>
+
+##<a link href="./arduino">아두이노 오픈소스(TinyGPS) </a>
+
+##<a link href="./up_link_arduino">LoRa 업링크 모듈(LoRa - UpLink) </a>
+
+##<a link href="./dn_link_arduino">LoRa 다운링크 모듈(LoRa - DownLink)</a> 
+
+##<a link href="./show_video"> 프로젝트 영상 및 모듈 시스템 구조 소개 (Project & Video & System Flow / Architecture) </a> 
+
+<br />
+<hr />
+
 
 
