@@ -5,6 +5,7 @@ var express = require("express");
 var router = express.Router();
 var MedForm = require("../../models/med_form/medFormDB");
 var User = require("../../models/userDB");
+var devReset = require("../dn_link/dev_reset"); // 시간에 맞게 디바이스 통제
 
 /*
  투약 알림 설정
@@ -49,6 +50,19 @@ function updateUserInfo(LTID, medName, startDate, endDate, alarm1, alarm2, alarm
     });
 }
 
+function toSendDevResetByAlarmTime(LTID,startDate,endDate,alarm1,alarm2,alarm3) {
+    console.log(LTID +" 입니다.");
+    /*
+    알람 날짜 & 알람 시간에 따라 리셋 내리기 --> devReset을 extmgmtcmd로 변경하는 법 체크해야하고 이를 받아서 디바이스에서
+    진동센서로 신호를 보내는 것을 해야함 (String Tokenizer)
+     */
+    var today = new Date();
+    if(startDate <= today.getDate()){
+
+    }
+    devReset(LTID); // 디바이스 리셋 (다운링크 정리)
+}
+
 router.post("/insert", function (req, res, next) {
     var medName = req.body.medName;
     var LTID = req.body.LTID;
@@ -83,6 +97,7 @@ router.post("/insert", function (req, res, next) {
                 }
             });
             console.log("투약 알림 정보 데이터 저장은 성공 하였음");
+            toSendDevResetByAlarmTime(LTID,startDate,endDate,alarm1,alarm2,alarm3);
             return res.status(200).send(JSON.stringify(medForm));
         }
     });
