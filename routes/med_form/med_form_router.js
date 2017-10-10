@@ -66,11 +66,9 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
 
     var sDate = new Date(srtArr[0]);
     var eDate = new Date(endArr[0]);
-    DateForm = sDate.split("-");
-    var sYear = DateForm[0];
-    var sMonth = DateForm[1];
-    var sDate2 = DateForm[2];
-    var today = new Date(sYear + "-" + sMonth + "-" + sDate2);
+    console.log(sDate.getFullYear() +" // " + sDate.getMonth() + " // " + sDate.getDate());
+    console.log(eDate.getFullYear() +"//"+eDate.getMonth()+"//"+eDate.getDate());
+    var today = new Date(sDate.getFullYear() + "-" + sDate.getMonth() + "-" + sDate.getDate());
     // 시작 날짜를 기준으로 오늘 날짜를 만들었음 .. ! 보통은 시작 날짜가 투약 알림 시작과 동일하기 때문
     var dateMonth = undefined;
     var dateDay = undefined;
