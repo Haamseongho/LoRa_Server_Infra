@@ -61,18 +61,19 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
     var srtArr = new Array();
     var endArr = new Array();
     var DateForm = new Array();
+    console.log("-"+ startDate.getMonth() +"-"+ startDate.getDate());
     srtArr = startDate.split("T"); // 시작 날짜 T로 구분 예:) 2017-10-09
     endArr = endDate.split("T");   // 종료 날짜 T로 구분 예:) 2017-10-20
 
     var sDate = new Date(srtArr[0]);
     var eDate = new Date(endArr[0]);
-    console.log(sDate.getFullYear() +" // " + sDate.getMonth() + " // " + sDate.getDate());
-    console.log(eDate.getFullYear() +"//"+eDate.getMonth()+"//"+eDate.getDate());
-    var today = new Date(sDate.getFullYear() + "-" + sDate.getMonth() + "-" + sDate.getDate());
+    console.log(sDate.getYear() +" // " + sDate.getMonth() + " // " + sDate.getDate());
+    console.log(eDate.getYear() +"//"+eDate.getMonth()+"//"+eDate.getDate());
+    var today = new Date(sDate.getYear() + "-" + sDate.getMonth() + "-" + sDate.getDate());
     // 시작 날짜를 기준으로 오늘 날짜를 만들었음 .. ! 보통은 시작 날짜가 투약 알림 시작과 동일하기 때문
     var dateMonth = undefined;
     var dateDay = undefined;
-    if (sDate.getFullYear() > today.getFullYear() && sDate.getMonth() > today.getMonth()
+    if (sDate.getYear() > today.getYear() && sDate.getMonth() > today.getMonth()
         && sDate.getDate() > today.getDate()) {
         return new Error("시작 날짜 설정이 잘못되었습니다.");
     } else {
