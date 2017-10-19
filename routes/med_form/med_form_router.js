@@ -62,17 +62,17 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
     var endArr = new Array();
     var DateForm = new Array();
     console.log(startDate);
-    console.log(new Date(Date.parse(startDate)).getDate()+"변환중");
-   // srtArr = startDate.split("T"); // 시작 날짜 T로 구분 예:) 2017-10-09
+    console.log(new Date(Date.parse(startDate)).getDate() + "변환중");
+    // srtArr = startDate.split("T"); // 시작 날짜 T로 구분 예:) 2017-10-09
 
-   // endArr = endDate.split("T");   // 종료 날짜 T로 구분 예:) 2017-10-20
+    // endArr = endDate.split("T");   // 종료 날짜 T로 구분 예:) 2017-10-20
 
     var rMonth = new Date(Date.parse(startDate)).getMonth();
     var lMonth = new Date(Date.parse(endDate)).getMonth();
-    var sDate = new Date(new Date(Date.parse(startDate)).getFullYear()+"-"+(rMonth+2)+"-"+new Date(Date.parse(startDate)).getDate());
-    var eDate = new Date(new Date(Date.parse(endDate)).getFullYear()+"-"+(lMonth+2)+"-"+new Date(Date.parse(endDate)).getDate());
-    console.log(sDate.getFullYear() +" // " + sDate.getMonth() + " // " + sDate.getDate());
-    console.log(eDate.getFullYear() +"//"+eDate.getMonth()+"//"+eDate.getDate());
+    var sDate = new Date(new Date(Date.parse(startDate)).getFullYear() + "-" + (rMonth + 2) + "-" + new Date(Date.parse(startDate)).getDate());
+    var eDate = new Date(new Date(Date.parse(endDate)).getFullYear() + "-" + (lMonth + 2) + "-" + new Date(Date.parse(endDate)).getDate());
+    console.log(sDate.getFullYear() + " // " + sDate.getMonth() + " // " + sDate.getDate());
+    console.log(eDate.getFullYear() + "//" + eDate.getMonth() + "//" + eDate.getDate());
     var today = new Date(sDate.getYear() + "-" + sDate.getMonth() + "-" + sDate.getDate());
     // 시작 날짜를 기준으로 오늘 날짜를 만들었음 .. ! 보통은 시작 날짜가 투약 알림 시작과 동일하기 때문
     var dateMonth = undefined;
@@ -81,43 +81,41 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
         && sDate.getDate() > today.getDate()) {
         return new Error("시작 날짜 설정이 잘못되었습니다.");
     } else {
-        dateMonth = today.getMonth()+1; // 계산할 월 수
+        dateMonth = today.getMonth() + 1; // 계산할 월 수
         dateDay = today.getDate();    // 계산할 일 수
         // 시작 날짜 부터 해서 날짜 카운팅
         // 종료 날짜 이 전까지 Date만들기.
         do {
-            if ((today.getMonth()+1) == 4 || (today.getMonth()+1) == 6 ||
-               (today.getMonth()+1) == 9 || (today.getMonth()+1) == 11) {
+            if ((today.getMonth() + 1) == 4 || (today.getMonth() + 1) == 6 ||
+                (today.getMonth() + 1) == 9 || (today.getMonth() + 1) == 11) {
 
-                if((sDate.getMonth() == dateMonth || eDate.getMonth() == dateMonth)){
+                if ((sDate.getMonth() == dateMonth || eDate.getMonth() == dateMonth)) {
                     // 약먹는 날이 시작 날인 달 or 끝나는 날의 달이어야 함.
-                    if(dateDay >= sDate.getDate() && dateDay <= eDate.getDate()){
-			var chkDate = new Date();
-                       //  chkDate.dateToYYYYMMDDhhmmss();
-                        var timer1_h = chkDate.getHours()*360000;
-                        var timer1_m = chkDate.getMinutes()*60000;
+                    if (dateDay >= sDate.getDate() && dateDay <= eDate.getDate()) {
+                        var chkDate = new Date();
+                        //  chkDate.dateToYYYYMMDDhhmmss();
+                        var timer1_h = chkDate.getHours() * 360000;
+                        var timer1_m = chkDate.getMinutes() * 60000;
                         var timer1_hm = (alarm1.split(":")[0] * 360000 + alarm1.split(":")[1] * 60000) - (timer1_h + timer1_m);
 
-                        setTimeout(function(){
-                                console.log("다운링크 1 차 " );
-                                devReset(LTID);
-                        },timer1_hm);
+                        setTimeout(function () {
+                            console.log("다운링크 1 차 ");
+                            devReset(LTID);
+                        }, timer1_hm);
 
                         var timer2_hm = (alarm2.split(":")[0] * 360000 + alarm2.split(":")[1] * 60000) - (timer1_h + timer1_m);
-                        console.log(timer1_hm +"이 후에 알림이 울립니다.");
-                        setTimeout(function(){
-                                console.log("다운링킄  2차 ");
-                                devReset(LTID);
-                        },timer2_hm);
+                        console.log(timer1_hm + "이 후에 알림이 울립니다.");
+                        setTimeout(function () {
+                            console.log("다운링킄  2차 ");
+                            devReset(LTID);
+                        }, timer2_hm);
 
                         var timer3_hm = (alarm3.split(":")[0] * 360000 + alarm3.split(":")[1] * 60000) - (timer1_h + timer1_m);
 
-                        setTimeout(function(){
-                                console.log("다운링크 3차");
-                                devReset(LTID);
-                        },timer3_hm);
-
-                        }
+                        setTimeout(function () {
+                            console.log("다운링크 3차");
+                            devReset(LTID);
+                        }, timer3_hm);
                     }
                 }
 
@@ -128,41 +126,42 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
                     dateDay++;
                 }
 
-            } else if ((today.getMonth()+1) == 1 || (today.getMonth()+1) == 3 ||
-               (today.getMonth()+1) == 5 || (today.getMonth()+1) == 7 || (today.getMonth()+1) == 8
-                || (today.getMonth()+1) == 10 || (today.getMonth()+1) == 12) {
+            }
+            else if ((today.getMonth() + 1) == 1 || (today.getMonth() + 1) == 3 ||
+                (today.getMonth() + 1) == 5 || (today.getMonth() + 1) == 7 || (today.getMonth() + 1) == 8
+                || (today.getMonth() + 1) == 10 || (today.getMonth() + 1) == 12) {
                 // 31일 까지 있는 달
 
-                if((sDate.getMonth() == dateMonth || eDate.getMonth() == dateMonth)){
-                    if(dateDay >= sDate.getDate() && dateDay <= eDate.getDate()){
+                if ((sDate.getMonth() == dateMonth || eDate.getMonth() == dateMonth)) {
+                    if (dateDay >= sDate.getDate() && dateDay <= eDate.getDate()) {
                         var chkDate = new Date();
-                       //  chkDate.dateToYYYYMMDDhhmmss();
-			var timer1_h = chkDate.getHours()*360000;
-			var timer1_m = chkDate.getMinutes()*60000;
-			var timer1_hm = (alarm1.split(":")[0] * 360000 + alarm1.split(":")[1] * 60000) - (timer1_h + timer1_m);
+                        //  chkDate.dateToYYYYMMDDhhmmss();
+                        var timer1_h = chkDate.getHours() * 360000;
+                        var timer1_m = chkDate.getMinutes() * 60000;
+                        var timer1_hm = (alarm1.split(":")[0] * 360000 + alarm1.split(":")[1] * 60000) - (timer1_h + timer1_m);
 
-			setTimeout(function(){
-				console.log("다운링크 1 차 " );
-				devReset(LTID);
-			},timer1_hm);
+                        setTimeout(function () {
+                            console.log("다운링크 1 차 ");
+                            devReset(LTID);
+                        }, timer1_hm);
 
-			var timer2_hm = (alarm2.split(":")[0] * 360000 + alarm2.split(":")[1] * 60000) - (timer1_h + timer1_m);
-			console.log(timer1_hm +"이 후에 알림이 울립니다.");
-			setTimeout(function(){
-				console.log("다운링킄  2차 ");
-				devReset(LTID);
-			},timer2_hm);
-	
-			var timer3_hm = (alarm3.split(":")[0] * 360000 + alarm3.split(":")[1] * 60000) - (timer1_h + timer1_m);
+                        var timer2_hm = (alarm2.split(":")[0] * 360000 + alarm2.split(":")[1] * 60000) - (timer1_h + timer1_m);
+                        console.log(timer1_hm + "이 후에 알림이 울립니다.");
+                        setTimeout(function () {
+                            console.log("다운링킄  2차 ");
+                            devReset(LTID);
+                        }, timer2_hm);
 
-			setTimeout(function(){
-				console.log("다운링크 3차");
-				devReset(LTID);
-			},timer3_hm);
+                        var timer3_hm = (alarm3.split(":")[0] * 360000 + alarm3.split(":")[1] * 60000) - (timer1_h + timer1_m);
+
+                        setTimeout(function () {
+                            console.log("다운링크 3차");
+                            devReset(LTID);
+                        }, timer3_hm);
 
 
+                    }
                 }
-	}
 
 
                 if (dateDay > 31) {
@@ -174,31 +173,30 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
             } else {
                 // 2월
             }
-        } while (today.getFullYear() <= eDate.getFullYear() && dateMonth <= eDate.getMonth() && dateDay <= eDate.getDate());
+        }
+        while (today.getFullYear() <= eDate.getFullYear() && dateMonth <= eDate.getMonth() && dateDay <= eDate.getDate());
 // 반복문 종료 후 반복문 벗겨지면서 devReset 진행 --> LTID
-
     }
-
 }
 
-Date.prototype.dateToYYYYMMDDhhmmss = function() {
+Date.prototype.dateToYYYYMMDDhhmmss = function () {
     var yyyy = this.getFullYear().toString();
-    var MM = pad(this.getMonth() + 1,2);
-    var dd = pad(this.getDate(),2);
-    var hh = pad(this.getHours(),2);
-    var mm = pad(this.getMinutes(),2);
-    var ss = pad(this.getSeconds(),2);
+    var MM = pad(this.getMonth() + 1, 2);
+    var dd = pad(this.getDate(), 2);
+    var hh = pad(this.getHours(), 2);
+    var mm = pad(this.getMinutes(), 2);
+    var ss = pad(this.getSeconds(), 2);
 
     return yyyy + MM + dd + hh + mm + ss;
 };
 
-function pad(number,length){
-  var str = '' +number;
-  while(str.length < length){
-      str = '0'+str;
-  }
+function pad(number, length) {
+    var str = '' + number;
+    while (str.length < length) {
+        str = '0' + str;
+    }
 
-  return str;
+    return str;
 }
 
 router.post("/insert", function (req, res, next) {
