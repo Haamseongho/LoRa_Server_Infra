@@ -92,31 +92,27 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
                 if((sDate.getMonth() == dateMonth || eDate.getMonth() == dateMonth)){
                     // 약먹는 날이 시작 날인 달 or 끝나는 날의 달이어야 함.
                     if(dateDay >= sDate.getDate() && dateDay <= eDate.getDate()){
-			var chkDate = new Date();
-                       //  chkDate.dateToYYYYMMDDhhmmss();
-                        var timer1_h = chkDate.getHours()*360000;
-                        var timer1_m = chkDate.getMinutes()*60000;
-                        var timer1_hm = (alarm1.split(":")[0] * 360000 + alarm1.split(":")[1] * 60000) - (timer1_h + timer1_m);
+                        var chkDate = new Date();
+			var options = {
+			     weekday : "long",year;"numeric",month:"short",
+			     day : "numeric",hour : "2-digit", minute : "2-digit"
+			}
+			console.log(date.toLocaleTimeString('ko-KR'),options);
+			console.log(date.toLocaleDateString('ko-KR');
+                        //chkDate.dateToYYYYMMDDhhmmss();
+                        if(chkDate.getHours() + ":" + chkDate.getMinutes() == alarm1){
+                            console.log("다운링크 전송1");
+                            devReset(LTID); // 디바이스 리셋 (다운링크 정리)
+                        }
 
-                        setTimeout(function(){
-                                console.log("다운링크 1 차 " );
-                                devReset(LTID);
-                        },timer1_hm);
+                        if(chkDate.getHours() + ":" + chkDate.getMinutes() == alarm2){
+                            console.log("다운링크 전송2");
+                            devReset(LTID); // 디바이스 리셋 (다운링크 정리)
+                        }
 
-                        var timer2_hm = (alarm2.split(":")[0] * 360000 + alarm2.split(":")[1] * 60000) - (timer1_h + timer1_m);
-                        console.log(timer1_hm +"이 후에 알림이 울립니다.");
-                        setTimeout(function(){
-                                console.log("다운링킄  2차 ");
-                                devReset(LTID);
-                        },timer2_hm);
-
-                        var timer3_hm = (alarm3.split(":")[0] * 360000 + alarm3.split(":")[1] * 60000) - (timer1_h + timer1_m);
-
-                        setTimeout(function(){
-                                console.log("다운링크 3차");
-                                devReset(LTID);
-                        },timer3_hm);
-
+                        if(chkDate.getHours() + ":" + chkDate.getMinutes() == alarm3){
+                            console.log("다운링크 전송3");
+                            devReset(LTID); // 디바이스 리셋 (다운링크 정리)
                         }
                     }
                 }
@@ -136,33 +132,26 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
                 if((sDate.getMonth() == dateMonth || eDate.getMonth() == dateMonth)){
                     if(dateDay >= sDate.getDate() && dateDay <= eDate.getDate()){
                         var chkDate = new Date();
-                       //  chkDate.dateToYYYYMMDDhhmmss();
-			var timer1_h = chkDate.getHours()*360000;
-			var timer1_m = chkDate.getMinutes()*60000;
-			var timer1_hm = (alarm1.split(":")[0] * 360000 + alarm1.split(":")[1] * 60000) - (timer1_h + timer1_m);
+                        chkDate.dateToYYYYMMDDhhmmss();
+                        //chkDate = dateToYYYYMMDDhhmmss(chkDate);
+			console.log(chkDate.dateToYYYYMMDDhhmmss());
+                        console.log(alarm1 + "알람1 시간 입니다. " + 13 +":" + 30 +"알람 1 비교 시간입니다.");
+                        if((14+ ":" +52) == alarm1){
+                            console.log("다운링크 전송1");
+                            devReset(LTID); // 디바이스 리셋 (다운링크 정리)
+                        }
 
-			setTimeout(function(){
-				console.log("다운링크 1 차 " );
-				devReset(LTID);
-			},timer1_hm);
+                        if(chkDate.getHours() + ":" + chkDate.getMinutes() == alarm2){
+                            console.log("다운링크 전송2");
+                            devReset(LTID); // 디바이스 리셋 (다운링크 정리)
+                        }
 
-			var timer2_hm = (alarm2.split(":")[0] * 360000 + alarm2.split(":")[1] * 60000) - (timer1_h + timer1_m);
-			console.log(timer1_hm +"이 후에 알림이 울립니다.");
-			setTimeout(function(){
-				console.log("다운링킄  2차 ");
-				devReset(LTID);
-			},timer2_hm);
-	
-			var timer3_hm = (alarm3.split(":")[0] * 360000 + alarm3.split(":")[1] * 60000) - (timer1_h + timer1_m);
-
-			setTimeout(function(){
-				console.log("다운링크 3차");
-				devReset(LTID);
-			},timer3_hm);
-
-
+                        if(chkDate.getHours() + ":" + chkDate.getMinutes() == alarm3){
+                            console.log("다운링크 전송3");
+                            devReset(LTID); // 디바이스 리셋 (다운링크 정리)
+                        }
+                    }
                 }
-	}
 
 
                 if (dateDay > 31) {
