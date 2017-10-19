@@ -93,7 +93,6 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
                     // 약먹는 날이 시작 날인 달 or 끝나는 날의 달이어야 함.
                     if (dateDay >= sDate.getDate() && dateDay <= eDate.getDate()) {
                         var chkDate = new Date();
-                        //  chkDate.dateToYYYYMMDDhhmmss();
                         var timer1_h = chkDate.getHours() * 360000;
                         var timer1_m = chkDate.getMinutes() * 60000;
                         var timer1_hm = (alarm1.split(":")[0] * 360000 + alarm1.split(":")[1] * 60000) - (timer1_h + timer1_m);
@@ -114,8 +113,11 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
 
                         setTimeout(function () {
                             console.log("다운링크 3차");
+                            dateDay += 1; // 다운링크 3차 (하루의 마지막 알림)
                             devReset(LTID);
                         }, timer3_hm);
+                    }else{
+                        break; // 일 수가 오버될 경우 break >> 반복문 아웃
                     }
                 }
 
@@ -135,7 +137,6 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
                 if ((sDate.getMonth() == dateMonth || eDate.getMonth() == dateMonth)) {
                     if (dateDay >= sDate.getDate() && dateDay <= eDate.getDate()) {
                         var chkDate = new Date();
-                        //  chkDate.dateToYYYYMMDDhhmmss();
                         var timer1_h = chkDate.getHours() * 360000;
                         var timer1_m = chkDate.getMinutes() * 60000;
                         var timer1_hm = (alarm1.split(":")[0] * 360000 + alarm1.split(":")[1] * 60000) - (timer1_h + timer1_m);
@@ -148,7 +149,7 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
                         var timer2_hm = (alarm2.split(":")[0] * 360000 + alarm2.split(":")[1] * 60000) - (timer1_h + timer1_m);
                         console.log(timer1_hm + "이 후에 알림이 울립니다.");
                         setTimeout(function () {
-                            console.log("다운링킄  2차 ");
+                            console.log("다운링크  2차 ");
                             devReset(LTID);
                         }, timer2_hm);
 
@@ -156,10 +157,11 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
 
                         setTimeout(function () {
                             console.log("다운링크 3차");
+                            dateDay += 1; // 하루의 마지막 다운링크만 하루 일 수를 증가하면 된다.
                             devReset(LTID);
                         }, timer3_hm);
-
-
+                    }else{
+                        break; // 일 수가 오버될 경우 break;
                     }
                 }
 
@@ -179,25 +181,6 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
     }
 }
 
-Date.prototype.dateToYYYYMMDDhhmmss = function () {
-    var yyyy = this.getFullYear().toString();
-    var MM = pad(this.getMonth() + 1, 2);
-    var dd = pad(this.getDate(), 2);
-    var hh = pad(this.getHours(), 2);
-    var mm = pad(this.getMinutes(), 2);
-    var ss = pad(this.getSeconds(), 2);
-
-    return yyyy + MM + dd + hh + mm + ss;
-};
-
-function pad(number, length) {
-    var str = '' + number;
-    while (str.length < length) {
-        str = '0' + str;
-    }
-
-    return str;
-}
 
 router.post("/insert", function (req, res, next) {
     var medName = req.body.medName;
