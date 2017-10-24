@@ -1,7 +1,7 @@
 /**
  * Created by haams on 2017-10-04.
  */
-var http = require("https");
+var http = require("http");
 
 module.exports = function (LTID) {
     console.log(LTID + "__devReset");
@@ -14,7 +14,8 @@ module.exports = function (LTID) {
             "accept": "application/xml",
             "x-m2m-ri": LTID+"_0012",
             "x-m2m-origin": LTID,
-            "content-type": "application/vnd.onem2m-res+xml;ty=12",
+	    "content-type":"application/xml",
+            //"content-type": "application/vnd.onem2m-res+xml;ty=12",
             "ukey": "Q2g2eHp3QzJNWFRlb1o4c1JIVkQwR2p1VEVBZXhLYmM1ekYycUI2Wm9NeXBBOVlWeUpQcDNVSW8yZnJVdkp3Yw==",
             "cache-control": "no-cache",
 	    "postman-token" : "67cf06c8-8269-ebaf-5f57-0f146f33b157"

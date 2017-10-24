@@ -99,6 +99,7 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
 
                         setTimeout(function () {
                             console.log("다운링크 1 차 ");
+			    console.log(LTID);
                             devReset(LTID);
                         }, timer1_hm);
 
