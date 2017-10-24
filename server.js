@@ -26,7 +26,7 @@ var indexRouter = require("./routes/index");
 //         router        //
 
 
-var dataRouter = require("./routes/data");
+var dataRouter = require("./routes/up_link/data");
 
 var fcmPush = require("./routes/push");
 var test3 = require("./routes/test3");
