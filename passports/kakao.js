@@ -109,7 +109,7 @@ module.exports = function (router, passport) {
 
     function check_provider(provider) {
         if (provider == "kakao") {
-            console.log("kakao -- 1");
+
             return 1;
         } else {
             return 0;

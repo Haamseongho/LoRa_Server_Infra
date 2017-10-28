@@ -112,7 +112,7 @@ module.exports = function (router, passport) {
 
     function check_provider(provider) {
         if (provider == "facebook") {
-            console.log("facebook -- 1");
+
             return 1;
         } else {
             return 0;
