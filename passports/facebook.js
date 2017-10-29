@@ -32,7 +32,7 @@ module.exports = function (router, passport) {
     router.use(expressSession({
         secret: "ubinet111",
         resave: true,
-        saveUninitialized: true
+        saveUninitialize: true
     }));
     router.use(passport.initialize());
     router.use(passport.session());
@@ -57,14 +57,14 @@ module.exports = function (router, passport) {
 
     // 로그인 실패 시 원래 있던 페이지로 다시 돌아오기
 
-    router.get("/main", function (req, res) {
+    router.get("/main", function (req, res,next) {
 
         console.log(req.user.provider + "입니다.");
         if (Array.isArray(req.user)) {
             switch (check_provider(req.user.provider)) {
                 case 0: {
                     console.log("Nothing to start");
-                    res.redirect("/");
+                    next();
                 }
                     break;
 
@@ -80,6 +80,7 @@ module.exports = function (router, passport) {
                     })
                 }
                     break;
+
             }
 
             // 기존에 세션이 존재하지 않을 경우
@@ -88,7 +89,7 @@ module.exports = function (router, passport) {
             switch (check_provider(req.user.provider)) {
                 case 0: {
                     console.log("Nothing to start");
-                    res.redirect("/");
+                    next();
                 }
                     break;
 
@@ -105,6 +106,7 @@ module.exports = function (router, passport) {
                     })
                 }
                     break;
+
             }
         }
     });
@@ -112,9 +114,9 @@ module.exports = function (router, passport) {
 
     function check_provider(provider) {
         if (provider == "facebook") {
-
+            console.log("facebook -- 1");
             return 1;
-        } else {
+        }  else {
             return 0;
         }
     }
