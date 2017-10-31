@@ -13,12 +13,12 @@ module.exports = function (router,callback) {
     var message = {
         "to":"cbntaFliIV8:APA91bGJLtvm1zk4LYLxImb5Ctk8qhT9UdDzztgfH3PUgD9OBEP5upcYIYOCHvQN85Ne06KJc5IKhu_taakGZ-zGm--vcMLfNPt8XGOgno9nMTCAc9UiFKzucQibjWM2EBOlVV8YnEvD",
         "notification" : {
-            "body" : "알림",
-            "title": "제목"
+            "body" : "디바이스 사용자의 맥박이 이상 수치로 측정되었습니다. 빠른 조치가 필요합니다.",
+            "title": "위험 상황! 노인 분께서 위험합니다!"
         },
         "data":{
-            "name":"haams",
-            "body":"great!"
+            "name":"디바이스 착용자 위험 상황 알림",
+            "body":"맥박이 이상 수치로 측정되었습니다. 빠르게 조치해야 합니다!"
         }
     };
 

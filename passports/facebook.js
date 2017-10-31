@@ -32,7 +32,7 @@ module.exports = function (router, passport) {
     router.use(expressSession({
         secret: "ubinet111",
         resave: true,
-        saveUninitialize: true
+        saveUninitialized: true
     }));
     router.use(passport.initialize());
     router.use(passport.session());

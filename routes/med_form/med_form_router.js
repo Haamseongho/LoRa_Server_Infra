@@ -81,6 +81,7 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
         && sDate.getDate() > today.getDate()) {
         return new Error("시작 날짜 설정이 잘못되었습니다.");
     } else {
+	console.log("여기 되는 중..?");
         dateMonth = today.getMonth() + 1; // 계산할 월 수
         dateDay = today.getDate();    // 계산할 일 수
         // 시작 날짜 부터 해서 날짜 카운팅
@@ -96,7 +97,7 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
                         var timer1_h = chkDate.getHours() * 360000;
                         var timer1_m = chkDate.getMinutes() * 60000;
                         var timer1_hm = (alarm1.split(":")[0] * 360000 + alarm1.split(":")[1] * 60000) - (timer1_h + timer1_m);
-
+                        console.log(timer1_hm + "이 후에 알림이 울립니다."); // 첫 투약 알람
                         setTimeout(function () {
                             console.log("다운링크 1 차 ");
 			    console.log(LTID);
@@ -104,14 +105,14 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
                         }, timer1_hm);
 
                         var timer2_hm = (alarm2.split(":")[0] * 360000 + alarm2.split(":")[1] * 60000) - (timer1_h + timer1_m);
-                        console.log(timer1_hm + "이 후에 알림이 울립니다.");
+                        console.log(timer2_hm + "이 후에 알림이 울립니다."); // 두 번째 투약 알람
                         setTimeout(function () {
                             console.log("다운링킄  2차 ");
                             devReset(LTID);
                         }, timer2_hm);
 
                         var timer3_hm = (alarm3.split(":")[0] * 360000 + alarm3.split(":")[1] * 60000) - (timer1_h + timer1_m);
-
+			console.log(timer3_hm + "이 후에 알림이 울립니다."); // 세 번째 투약 알람
                         setTimeout(function () {
                             console.log("다운링크 3차");
                             dateDay += 1; // 다운링크 3차 (하루의 마지막 알림)
@@ -141,21 +142,21 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
                         var timer1_h = chkDate.getHours() * 360000;
                         var timer1_m = chkDate.getMinutes() * 60000;
                         var timer1_hm = (alarm1.split(":")[0] * 360000 + alarm1.split(":")[1] * 60000) - (timer1_h + timer1_m);
-
+			console.log(timer1_hm + " 이 후에 알림이 울립니다.");
                         setTimeout(function () {
                             console.log("다운링크 1 차 ");
                             devReset(LTID);
                         }, timer1_hm);
 
                         var timer2_hm = (alarm2.split(":")[0] * 360000 + alarm2.split(":")[1] * 60000) - (timer1_h + timer1_m);
-                        console.log(timer1_hm + "이 후에 알림이 울립니다.");
+                        console.log(timer2_hm + "이 후에 알림이 울립니다.");
                         setTimeout(function () {
                             console.log("다운링크  2차 ");
                             devReset(LTID);
                         }, timer2_hm);
 
                         var timer3_hm = (alarm3.split(":")[0] * 360000 + alarm3.split(":")[1] * 60000) - (timer1_h + timer1_m);
-
+			console.log(timer3_hm + "이 후에 알림이 울립니다.");
                         setTimeout(function () {
                             console.log("다운링크 3차");
                             dateDay += 1; // 하루의 마지막 다운링크만 하루 일 수를 증가하면 된다.
@@ -167,7 +168,7 @@ function toSendDevResetByAlarmTime(LTID, startDate, endDate, alarm1, alarm2, ala
                 }
 
 
-                if (dateDay > 31) {
+                if (dateDay >= 31) {
                     dateMonth += 1;
                     dateDay = 1; // 한 달이 지나고 일 수는 1로 회귀한다.
                 } else { // 31일이 넘지 않을 때 날짜 수는 증가 한다.

@@ -28,6 +28,7 @@ router.post("/", function (req, res, next) {
     var pulse = req.body['m2m:cin']['con'][0].substr(17, 3);
 
 
+
     data2 = data[3].split('-');
     var LTID = data2[1];
     console.log(LTID);
@@ -50,7 +51,6 @@ router.post("/", function (req, res, next) {
             else console.log("푸쉬 알림 전송 성공");
         });
     }
-
 
 
     dynamic.save(function (error, data) {

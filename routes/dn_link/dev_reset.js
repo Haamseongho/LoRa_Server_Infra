@@ -7,17 +7,17 @@ module.exports = function (LTID) {
     console.log(LTID + "__devReset");
     var options = {
         "method": "put",
-        "hostname": "onem2m.sktiot.com",
+        "hostname": "thingplugpf.sktiot.com",
         "port": "9443",
-        "path": "/0000000000000004/v1_0/mgmtCmd-" + LTID + "_DevReset",
+        "path": "/9999991000000309/v1_0/mgmtCmd-" + LTID + "_DevReset",
         "headers": {
             "accept": "application/xml",
             "x-m2m-ri": LTID+"_0012",
             "x-m2m-origin": LTID,
             "content-type": "application/vnd.onem2m-res+xml;ty=12",
-            "ukey": "Q2g2eHp3QzJNWFRlb1o4c1JIVkQwR2p1VEVBZXhLYmM1ekYycUI2Wm9NeXBBOVlWeUpQcDNVSW8yZnJVdkp3Yw==",
+            "ukey": "UXFQdEE1TkQzRU15Zlk1ay85SWNBSUNDek9DTFpmaWtXZnorTW1mT2lOTmhOMDcrRnhKN0FrRldOdGNSbHN4NA==",
             "cache-control": "no-cache",
-	    "postman-token" : "67cf06c8-8269-ebaf-5f57-0f146f33b157"
+	    "postman-token" : "35c289be-54cd-8e47-821a-9741743138d0"
            // "postman-token": "0d480701-cb4a-653f-3b96-b7dcd0a77f7d"
         }
     };
