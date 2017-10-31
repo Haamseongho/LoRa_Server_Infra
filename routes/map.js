@@ -12,7 +12,7 @@ var user = undefined;
 var Provider = require("../models/provider/provider_check");
 
 router.get("/map", function (req, res, next) {
-
+    console.log("요청::" + req.user.provider);
     if(req.user.provider == "facebook"){
         console.log(req.user.provider);
         var Name=req.user._json.name
