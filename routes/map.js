@@ -24,7 +24,7 @@ router.get("/map", function (req, res, next) {
         console.log(guardinfo.LTID);
 
         Dynamic.findOne({ $query:{LTID:guardinfo.LTID},$orderby:{time:1}},function(err,dynamics) {
-            console.log(dynamics.time);
+           // console.log(dynamics.time);
             console.log(dynamics.lat);
             return res.render("map.ejs", {dyanmicData: dynamics});
         });
