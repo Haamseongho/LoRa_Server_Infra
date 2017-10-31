@@ -22,8 +22,7 @@ router.get("/map", function (req, res, next) {
     }
     Guardian.findOne({name:Name},function(err, guardinfo) {
         console.log(guardinfo.LTID);
-
-        Dynamic.findOne({ $query:{LTID:guardinfo.LTID},$orderby:{time:1}},function(err,dynamics) {
+        Dynamic.findOne({"$query":{LTID:guardinfo.LTID},"$orderby":{"pulse":-1}},function(err,dynamics) {
             console.log(dynamics.time);
             console.log(dynamics.lat);
             return res.render("map.ejs", {dyanmicData: dynamics});
