@@ -23,15 +23,15 @@ router.post("/", function (req, res, next) {
     data = req.body['m2m:cin']['sr'][0].split("/");
 
 
-    var lat = req.body['m2m:cin']['con'][0].substr(0, 2) + '.' + req.body['m2m:cin']['con'][0].substr(2, 6); // 0 - lat , 1 - lng , 2 - pulse
-    var lon = req.body['m2m:cin']['con'][0].substr(8, 3) + "." + req.body['m2m:cin']['con'][0].substr(11, 6);
-    var pulse = req.body['m2m:cin']['con'][0].substr(17, 3);
-
-
+   // var lat = req.body['m2m:cin']['con'][0].substr(0, 2) + '.' + req.body['m2m:cin']['con'][0].substr(2, 6); // 0 - lat , 1 - lng , 2 - pulse
+   // var lon = req.body['m2m:cin']['con'][0].substr(8, 3) + "." + req.body['m2m:cin']['con'][0].substr(11, 6);
+    var pulse = req.body['m2m:cin']['con'][0];
+    var lat = req.body['m2m:cin']['ppt'][0]['gwl'][0].substr(0,8);
+    var lon = req.body['m2m:cin']['ppt'][0]['gwl'][0].substr(9,9);
 
     data2 = data[3].split('-');
     var LTID = data2[1];
-    console.log(LTID);
+    console.log(LTID+"측정된 LTID");
 
     var dynamic = new dynamicData({
         LTID: LTID,
@@ -57,6 +57,7 @@ router.post("/", function (req, res, next) {
         if (error) return res.json("error saved user's Data");
         return res.send('send well');
     });
+
 });
 
 module.exports = router;
