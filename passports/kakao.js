@@ -55,13 +55,14 @@ module.exports = function (router, passport) {
         res.redirect("/"); // 로그인실패 --> 메인 페이지 이동
     });
 
-    router.get("/main", function (req, res) {
+    router.get("/main", function (req, res,next) {
+
         if (Array.isArray(req.user)) {
             switch (check_provider(req.user.provider)) {
                 case 0: {
                     console.log(req.user.provider);
                     console.log("Nothing to start");
-                    res.redirect("/");
+                    next();
                 }
                     break;
 
@@ -82,10 +83,11 @@ module.exports = function (router, passport) {
             // 기존에 세션이 존재하지 않을 경우
 
         } else {
+            console.log(req.user.provider);
             switch (check_provider(req.user.provider)) {
                 case 0: {
                     console.log("Nothing to start");
-                    res.redirect("/");
+                    next();
                 }
                     break;
 

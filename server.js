@@ -11,6 +11,7 @@ var User = require("./models/userDB");
 var colors = require("colors");
 var Promise = require("es6-promise").Promise;
 var port = process.env.PORT || 2721;
+
 //      DataBase     //
 
 var mongoose = require("mongoose");
@@ -28,7 +29,7 @@ var indexRouter = require("./routes/index");
 
 var dataRouter = require("./routes/up_link/data");
 
-var fcmPush = require("./routes/push");
+//var fcmPush = require("./routes/up_link/push");
 var test3 = require("./routes/test3");
 var map= require("./routes/map");
 var overdose = require("./routes/overdose");
@@ -79,9 +80,9 @@ mongoose.connect(dbUrl, function (err) {
 //router
 
 app.use("/", indexRouter);
-app.use("/data", dataRouter);
+app.use("/", dataRouter);
 
-app.use("/push", fcmPush);
+//app.use("/push", fcmPush);
 app.use("/",test3);
 app.use(express.static('public'));
 app.use("/",map);

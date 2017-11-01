@@ -20,6 +20,20 @@ router.post("/dynamics", function (req, res, next) {
     var LTID = req.body.LTID;
     var userInfo = new UserInfo();
     var dynamic = new Dynamic();
+    Dynamic.collection.find({LTID:LTID}).sort({time:-1}).toArray(function(err,dynamics){
+	if(err) return console.log("해당 LTID는 존재하지 않습니다.");
+	else{
+	    console.log("LTID가 동일합니다.");
+	    updateUDataByLTID(dynamics[0].LTID,dynamics[0].lat,dynamics[0].lon,dynamics[0].pulse,function(err,userInfo){
+		if(err) return console.log("사용자 정보 - 맥박/위도/경도 갱신 실패");
+		else{
+		    console.log("사용자 정보 - 위도/경도/맥박 갱신 성공");
+		    console.log(JSON.stringify(userInfo));
+		}
+	    });
+	}
+    });
+/*
     dynamic.findLTIDForLatLng(LTID, function (err, dynamicData) {
         if (err) return console.log('해당 LTID는 존재하지 않습니다');
         // 사용자가 가입 시에 정한 LTID와 ThingPlug server에서 넘어온 LTID는 동일해야함.
@@ -37,6 +51,7 @@ router.post("/dynamics", function (req, res, next) {
 
         }
     })
+*/
 });
 
 router.get("/spotinfo",function (req,res,next) {
