@@ -6,19 +6,21 @@ var db = mongoose.connection;
 var bodyParser = require("body-parser");
 require('body-parser-xml')(bodyParser);
 var db = mongoose.connection;
-
+var request = require("request");
 var app = express();
-var fcmPush = require("./push"); // FCM PUSH
+var push = require("./push"); // FCM PUSH
 
 app.set(bodyParser.json());
 app.set(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.xml());
 
 
-router.post("/", function (req, res, next) {
+router.route("/data").post(function (req, res, next) {
     var data = new Array();  // sr 정보 뽑기 위함
     var data2 = new Array(); // LTID 체크 하기 위함 
-
+    console.log(req.url);
+    console.log(req.method);
+    console.log(req.body);
 
     data = req.body['m2m:cin']['sr'][0].split("/");
 
@@ -45,19 +47,29 @@ router.post("/", function (req, res, next) {
     console.log(lon + '경도');
     console.log(pulse + '맥박');
 
-    if (pulse < 60 || pulse > 140) {
-        fcmPush(router, function (err) {
-            if (err) console.log(new Error("푸쉬 알림 전송 실패"));
-            else console.log("푸쉬 알림 전송 성공");
-        });
+    if (pulse < 90 ) {
+	push(router,function(err,data){
+	    if(err) console.log("푸시 전송 실패");
+	    else console.log("푸시 전송 성공");
+	});
     }
 
 
     dynamic.save(function (error, data) {
-        if (error) return res.json("error saved user's Data");
-        return res.send('send well');
+        if (error) console.log("error saved user's Data");
+        else console.log('data saved well');
     });
+});
 
+router.get("/push/message",function(req,res,next){
+    console.log("push message get방식");
+});
+router.post("/push/message",function(req,res,next){
+    console.log("/push/message 전송 성공");
+    push(router,function(err,data){
+	if(err) return console.log("푸시 메시지 전송 완료");
+	else return console.log("푸시 메시지 전송 에러");	
+    });
 });
 
 module.exports = router;

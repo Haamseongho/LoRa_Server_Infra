@@ -11,7 +11,7 @@ var fcm = new Fcm(serverKey);
 module.exports = function (router,callback) {
 
     var message = {
-        "to":"cbntaFliIV8:APA91bGJLtvm1zk4LYLxImb5Ctk8qhT9UdDzztgfH3PUgD9OBEP5upcYIYOCHvQN85Ne06KJc5IKhu_taakGZ-zGm--vcMLfNPt8XGOgno9nMTCAc9UiFKzucQibjWM2EBOlVV8YnEvD",
+        "to":"cKSgvj1FDN4:APA91bHeBUZ4sWsHGYrslyFU2lowTt4115fxXvQkaIAoTdo8C0sMZQ0j4lVfkUqtEXksHo5IPlKhQfS8vSftCmcQ60xm8ZIARTxhL9_DXIpWPbmoOR6J_szIU1odcRrjL3dJBv5iu5jl",
         "notification" : {
             "body" : "디바이스 사용자의 맥박이 이상 수치로 측정되었습니다. 빠른 조치가 필요합니다.",
             "title": "위험 상황! 노인 분께서 위험합니다!"
@@ -22,7 +22,7 @@ module.exports = function (router,callback) {
         }
     };
 
-    router.post("/message",function (req,res,next) {
+    router.post("/push/message",function (req,res,next) {
         fcm.send(message,function (err,response) {
             if(err) console.log("메세지 전송 실패");
             else console.log("메세지 전송 성공");
