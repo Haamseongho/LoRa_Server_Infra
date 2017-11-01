@@ -70,7 +70,7 @@ router.post("/data", function (req, res, next) {
         });
     }
 */
-    if(pulse < 90){
+    if(pulse < 60 || pulse > 140){
 	var json_obj = {"msg":"hi","aa":["aaa","aaaa"]};
 	request.post({
 	   url : "http://52.79.83.51:2721/push/message",
