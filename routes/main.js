@@ -12,6 +12,8 @@ router.get("/main", function (req, res, next) {
     } else if (req.user.provider == "kakao") {
         console.log(req.user.name);
     }
+
+    console.log(index);
 });
 
 module.exports = router;

@@ -10,8 +10,6 @@ var passport = require("passport");
 /* GET home page. */
 
 
-
-
 router.get('/', function(req, res, next) {
     console.log("is it okay?");
     res.render('index', { title: 'Express' });
@@ -26,8 +24,6 @@ router.get("/logout",function (req,res,next) {
 
 fb_login(router,passport);
 kk_login(router,passport);
-
-
 
 
 
