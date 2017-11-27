@@ -20,8 +20,9 @@ router.get("/map", function (req, res, next) {
         console.log(req.user._json.kaccount_email);
         var Name = req.user._json.kaccount_email
     }
-    Guardian.findOne({name: Name}, function (err, guardinfo) {
-        console.log(guardinfo.LTID);
+    console.log("이름:"+Name);
+    Guardian.collection.findOne({name:Name}, function(err,guardinfo) {
+        console.log(guardinfo.LTID+"LTID입니다.");
         Dynamic.collection.find({LTID: guardinfo.LTID}).sort({time: -1}).toArray(function (err, dynamics) {
             console.log(dynamics[0].time);
             console.log(dynamics[0].lat);
