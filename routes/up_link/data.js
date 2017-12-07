@@ -67,7 +67,7 @@ router.route("/data").post(function (req, res, next) {
     console.log(lon + '경도');
     console.log(pulse + '맥박');
 
-    if(pulse < 60 || pulse > 140){
+    if(pulse < 90 || pulse > 140){
 	var json_obj = {"msg":"hi","aa":["aaa","aaaa"]};
 	request.post({
 	   url : "http://52.79.83.51:2721/push/message",
