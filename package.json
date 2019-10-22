@@ -19,7 +19,7 @@
     "express-session": "^1.15.5",
     "fcm-node": "^1.2.0",
     "moment": "^2.18.1",
-    "mongoose": "^4.9.10",
+    "mongoose": "^5.7.6",
     "morgan": "~1.7.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
